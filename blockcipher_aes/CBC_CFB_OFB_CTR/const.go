@@ -1,4 +1,4 @@
-package cbc_cfb_ofb_test
+package cbc_cfb_ofb_ctr_test
 
 import "crypto/aes"
 

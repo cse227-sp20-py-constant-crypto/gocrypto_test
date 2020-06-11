@@ -1,4 +1,4 @@
-package cbc_cfb_ofb_test
+package cbc_cfb_ofb_ctr_test
 
 import (
 	"crypto/aes"
@@ -10,37 +10,39 @@ import (
 	"io"
 )
 
-func spawnInit6(aesMode, specialIVMode int, baseKey, baseIV []byte) func(uint8) func([]byte) {
-
-	sIV := make([]byte, ivSize)
-	switch specialIVMode {
+func spawnInit2(aesMode, specialKeyMode int, baseKey, baseIV []byte) func(uint8) func([]byte) {
+	sKey := make([]byte, keySize)
+	switch specialKeyMode {
 	case 0:
-		binary.BigEndian.PutUint32(sIV, 0)
+		binary.BigEndian.PutUint32(sKey, 0)
 	case 1:
-		binary.BigEndian.PutUint32(sIV, 1)
+		binary.BigEndian.PutUint32(sKey, 1)
+	case 2:
+		binary.BigEndian.PutUint32(sKey, 2)
+	case 3:
+		binary.BigEndian.PutUint32(sKey, 3)
 	default:
-		panic(specialIVMode)
+		panic(specialKeyMode)
 	}
 
 	return func(class uint8) func([]byte) {
 		key := make([]byte, keySize)
-		copy(key, baseKey)
+		if class == 0 {
+			// class-0 a constant randomly picked key
+			copy(key, baseKey)
+		} else if class == 1 {
+			// class-1 special key (randomly prepicked)
+			copy(key, sKey)
+		} else {
+			panic(class)
+		}
 
 		block, err := aes.NewCipher(key)
 		if err != nil {
 			panic(err)
 		}
-
 		iv := make([]byte, ivSize)
-		if class == 0 {
-			// class-0 a constant randomly picked key
-			copy(iv, baseIV)
-		} else if class == 1 {
-			// class-1 special iv
-			copy(iv, sIV)
-		} else {
-			panic(class)
-		}
+		copy(iv, baseIV)
 
 		switch aesMode {
 		case 0:
@@ -61,9 +63,12 @@ func spawnInit6(aesMode, specialIVMode int, baseKey, baseIV []byte) func(uint8) 
 		case 2:
 			stream := cipher.NewOFB(block, iv)
 			return func(plaintext []byte) {
-				if len(plaintext)%aes.BlockSize != 0 {
-					panic("plaintext is not a multiple of the block size")
-				}
+				ciphertext := make([]byte, len(plaintext))
+				stream.XORKeyStream(ciphertext, plaintext)
+			}
+		case 3:
+			stream := cipher.NewCTR(block, iv)
+			return func(plaintext []byte) {
 				ciphertext := make([]byte, len(plaintext))
 				stream.XORKeyStream(ciphertext, plaintext)
 			}
@@ -73,7 +78,7 @@ func spawnInit6(aesMode, specialIVMode int, baseKey, baseIV []byte) func(uint8) 
 	}
 }
 
-func prepareInputs6(baseMsg []byte) func() []dudect.Input {
+func prepareInputs2(baseMsg []byte) func() []dudect.Input {
 	return func() []dudect.Input {
 		var inputs = make([]dudect.Input, smallerMeasurements)
 		for i := 0; i < smallerMeasurements; i++ {

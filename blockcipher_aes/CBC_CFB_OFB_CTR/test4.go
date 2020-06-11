@@ -1,4 +1,4 @@
-package cbc_cfb_ofb_test
+package cbc_cfb_ofb_ctr_test
 
 import (
 	"crypto/aes"
@@ -103,6 +103,40 @@ func spawnInit4(aesMode, specialMsgMode int, baseKey, baseIV []byte) ([]byte, fu
 		}
 	case 2:
 		stream := cipher.NewOFB(block, iv)
+		plaintext := make([]byte, msgSize)
+		switch specialMsgMode {
+		case 0:
+			// plaintext as 0
+		case 1:
+			// plaintext as 1
+			binary.BigEndian.PutUint32(plaintext, 1)
+		case 2:
+			// plaintext which encrypts to 0
+			ctxt := make([]byte, msgSize)
+			binary.BigEndian.PutUint32(ctxt, 0)
+			if len(ctxt)%aes.BlockSize != 0 {
+				panic("ciphertext is not a multiple of the block size")
+			}
+			stream.XORKeyStream(plaintext, ctxt)
+		case 3:
+			// plaintext which encrypts to 1
+			ctxt := make([]byte, msgSize)
+			binary.BigEndian.PutUint32(ctxt, 1)
+			if len(ctxt)%aes.BlockSize != 0 {
+				panic("ciphertext is not a multiple of the block size")
+			}
+			stream.XORKeyStream(plaintext, ctxt)
+		default:
+			panic(specialMsgMode)
+		}
+		return plaintext, func(_ uint8) func([]byte) {
+			return func(plaintext []byte) {
+				ciphertext := make([]byte, len(plaintext))
+				stream.XORKeyStream(ciphertext, plaintext)
+			}
+		}
+	case 3:
+		stream := cipher.NewCTR(block, iv)
 		plaintext := make([]byte, msgSize)
 		switch specialMsgMode {
 		case 0:

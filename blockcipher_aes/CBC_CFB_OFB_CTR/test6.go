@@ -1,18 +1,28 @@
-package cbc_cfb_ofb_test
+package cbc_cfb_ofb_ctr_test
 
 import (
 	"crypto/aes"
 	"crypto/cipher"
 	"crypto/rand"
+	"encoding/binary"
 	"fmt"
 	"github.com/Reapor-Yurnero/godudect"
 	"io"
 )
 
-func spawnInit3(aesMode int, baseKey, baseIV []byte) func(uint8) func([]byte) {
+func spawnInit6(aesMode, specialIVMode int, baseKey, baseIV []byte) func(uint8) func([]byte) {
 
-	return func(_ uint8) func([]byte) {
-		// constant randomly picked key
+	sIV := make([]byte, ivSize)
+	switch specialIVMode {
+	case 0:
+		binary.BigEndian.PutUint32(sIV, 0)
+	case 1:
+		binary.BigEndian.PutUint32(sIV, 1)
+	default:
+		panic(specialIVMode)
+	}
+
+	return func(class uint8) func([]byte) {
 		key := make([]byte, keySize)
 		copy(key, baseKey)
 
@@ -21,9 +31,16 @@ func spawnInit3(aesMode int, baseKey, baseIV []byte) func(uint8) func([]byte) {
 			panic(err)
 		}
 
-		// constant randomly picked iv
 		iv := make([]byte, ivSize)
-		copy(iv, baseIV)
+		if class == 0 {
+			// class-0 a constant randomly picked key
+			copy(iv, baseIV)
+		} else if class == 1 {
+			// class-1 special iv
+			copy(iv, sIV)
+		} else {
+			panic(class)
+		}
 
 		switch aesMode {
 		case 0:
@@ -44,9 +61,12 @@ func spawnInit3(aesMode int, baseKey, baseIV []byte) func(uint8) func([]byte) {
 		case 2:
 			stream := cipher.NewOFB(block, iv)
 			return func(plaintext []byte) {
-				if len(plaintext)%aes.BlockSize != 0 {
-					panic("plaintext is not a multiple of the block size")
-				}
+				ciphertext := make([]byte, len(plaintext))
+				stream.XORKeyStream(ciphertext, plaintext)
+			}
+		case 3:
+			stream := cipher.NewCTR(block, iv)
+			return func(plaintext []byte) {
 				ciphertext := make([]byte, len(plaintext))
 				stream.XORKeyStream(ciphertext, plaintext)
 			}
@@ -56,27 +76,21 @@ func spawnInit3(aesMode int, baseKey, baseIV []byte) func(uint8) func([]byte) {
 	}
 }
 
-func prepareInputs3(baseMsg []byte) func() []dudect.Input {
+func prepareInputs6(baseMsg []byte) func() []dudect.Input {
 	return func() []dudect.Input {
-		var inputs = make([]dudect.Input, numberMeasurements)
-
-		for i := 0; i < numberMeasurements; i++ {
+		var inputs = make([]dudect.Input, smallerMeasurements)
+		for i := 0; i < smallerMeasurements; i++ {
 			var randByte = make([]byte, 1)
 			if n, err := io.ReadFull(rand.Reader, randByte); err != nil || n != 1 {
 				panic(fmt.Sprintf("Randbit failed with Err: %v, n: %v", err, n))
 			}
 			class := int(randByte[0]) % 2
-			// class-0 constant randomly picked input
+			// class-0 and class-1 use constant randomly picked data
+			data := make([]byte, msgSize)
+			copy(data, baseMsg)
 			if class == 0 {
-				temp := make([]byte, msgSize)
-				copy(temp, baseMsg)
-				inputs[i] = dudect.Input{Data: temp, Class: 0}
+				inputs[i] = dudect.Input{Data: data, Class: 0}
 				continue
-			}
-			// class-1 varying random inputs
-			var data = make([]byte, msgSize)
-			if _, err := io.ReadFull(rand.Reader, data); err != nil {
-				panic(err)
 			}
 			inputs[i] = dudect.Input{Data: data, Class: 1}
 		}

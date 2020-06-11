@@ -1,4 +1,4 @@
-package cbc_cfb_ofb_test
+package cbc_cfb_ofb_ctr_test
 
 import (
 	"crypto/aes"
@@ -24,6 +24,7 @@ const (
 	CBC AESMode = iota
 	CFB
 	OFB
+	CTR
 )
 
 func (aesMode AESMode) String() string {
@@ -31,8 +32,9 @@ func (aesMode AESMode) String() string {
 		"AES-CBC",
 		"AES-CFB",
 		"AES-OFB",
+		"AES-CTR",
 	}
-	if aesMode != CBC && aesMode != CFB && aesMode != OFB {
+	if aesMode != CBC && aesMode != CFB && aesMode != OFB && aesMode != CTR {
 		return "N.A."
 	}
 	return names[aesMode]
@@ -63,7 +65,7 @@ func test() {
 
 	// test1
 	fmt.Println("|------------------Start Test-1------------------|")
-	for i := 0; i < 3; i++ {
+	for i := 0; i < 4; i++ {
 		fmt.Printf("<%s Mode Test-1>\n", AESMode(i))
 		dudect.Dudect(spawnInit1(i, key, iv), prepareInputs1(msg), true)
 	}
@@ -71,29 +73,30 @@ func test() {
 
 	// test2
 	fmt.Println("|------------------Start Test-2------------------|")
-	for i := 0; i < 3; i++ {
+	for i := 0; i < 4; i++ {
 		for j := 0; j < 4; j++ {
 			fmt.Printf("<%s Mode Test-2.%d>\n", AESMode(i), j)
 			for k := 0; k < msgTrail; k++ {
 				if k == 0 {
-					fmt.Printf("test against msg = %s\n", hex.EncodeToString(msg))
+					fmt.Printf("test against msg\n")
 					dudect.Dudect(spawnInit2(i, j, key, iv), prepareInputs2(msg), true)
+					fmt.Println()
 					continue
 				}
 				tempMsg := make([]byte, msgSize)
 				if _, err := io.ReadFull(rand.Reader, tempMsg); err != nil {
 					panic(err)
 				}
-				fmt.Printf("test against msg = %s\n", hex.EncodeToString(tempMsg))
+				fmt.Printf("test against random msg = %s\n", hex.EncodeToString(tempMsg))
 				dudect.Dudect(spawnInit2(i, j, key, iv), prepareInputs2(tempMsg), true)
+				fmt.Println()
 			}
 		}
 	}
-	fmt.Println()
 
 	// test3
 	fmt.Println("|------------------Start Test-3------------------|")
-	for i := 0; i < 3; i++ {
+	for i := 0; i < 4; i++ {
 		fmt.Printf("<%s Mode Test-3>\n", AESMode(i))
 		dudect.Dudect(spawnInit3(i, key, iv), prepareInputs3(msg), false)
 	}
@@ -101,7 +104,7 @@ func test() {
 
 	// test4
 	fmt.Println("|------------------Start Test-4------------------|")
-	for i := 0; i < 3; i++ {
+	for i := 0; i < 4; i++ {
 		for j := 0; j < 4; j++ {
 			fmt.Printf("<%s Mode Test-4.%d>\n", AESMode(i), j)
 			specialMsg, f := spawnInit4(i, j, key, iv)
@@ -112,7 +115,7 @@ func test() {
 
 	// test5
 	fmt.Println("|------------------Start Test-5------------------|")
-	for i := 0; i < 3; i++ {
+	for i := 0; i < 4; i++ {
 		fmt.Printf("<%s Mode Test-5>\n", AESMode(i))
 		dudect.Dudect(spawnInit5(i, key, iv), prepareInputs5(msg), true)
 	}
@@ -120,12 +123,12 @@ func test() {
 
 	// test6
 	fmt.Println("|------------------Start Test-6------------------|")
-	for i := 0; i < 3; i++ {
-		for j := 0; j < 4; j++ {
+	for i := 0; i < 4; i++ {
+		for j := 0; j < 2; j++ {
 			fmt.Printf("<%s Mode Test-6.%d>\n", AESMode(i), j)
 			for k := 0; k < msgTrail; k++ {
 				if k == 0 {
-					fmt.Printf("test against msg = %s\n", hex.EncodeToString(msg))
+					fmt.Printf("test against base msg\n")
 					dudect.Dudect(spawnInit6(i, j, key, iv), prepareInputs6(msg), true)
 					continue
 				}
@@ -133,7 +136,7 @@ func test() {
 				if _, err := io.ReadFull(rand.Reader, tempMsg); err != nil {
 					panic(err)
 				}
-				fmt.Printf("test against msg = %s\n", hex.EncodeToString(tempMsg))
+				fmt.Printf("test against random msg = %s\n", hex.EncodeToString(tempMsg))
 				dudect.Dudect(spawnInit6(i, j, key, iv), prepareInputs6(tempMsg), true)
 			}
 		}

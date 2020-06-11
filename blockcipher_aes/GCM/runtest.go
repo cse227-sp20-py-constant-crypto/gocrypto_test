@@ -10,7 +10,7 @@ import (
 )
 
 const (
-	numberMeasurements  = 10000                  // total measurements for test 1/3/5
+	numberMeasurements  = 1000000                // total measurements for test 1/3/5
 	smallerMeasurements = 10000                  // total measurements for test 2/4/6
 	numberKeys          = numberMeasurements / 2 // number of various keys used for test 1
 	numberNonce         = numberMeasurements / 2 // number of various IVs used for test 5
@@ -54,7 +54,7 @@ func test() {
 		fmt.Printf("<%s Mode Test-2.%d>\n", "GCM", j)
 		for k := 0; k < msgTrail; k++ {
 			if k == 0 {
-				fmt.Printf("test against msg = %s\n", hex.EncodeToString(msg))
+				fmt.Printf("test against base msg\n")
 				dudect.Dudect(spawnInit2(j, key, nonce), prepareInputs2(msg), true)
 				continue
 			}
@@ -62,7 +62,7 @@ func test() {
 			if _, err := io.ReadFull(rand.Reader, tempMsg); err != nil {
 				panic(err)
 			}
-			fmt.Printf("test against msg = %s\n", hex.EncodeToString(tempMsg))
+			fmt.Printf("test against random msg = %s\n", hex.EncodeToString(tempMsg))
 			dudect.Dudect(spawnInit2(j, key, nonce), prepareInputs2(tempMsg), true)
 		}
 	}
@@ -95,7 +95,7 @@ func test() {
 		fmt.Printf("<%s Mode Test-6.%d>\n", "GCM", j)
 		for k := 0; k < msgTrail; k++ {
 			if k == 0 {
-				fmt.Printf("test against msg = %s\n", hex.EncodeToString(msg))
+				fmt.Printf("test against base msg\n")
 				dudect.Dudect(spawnInit6(j, key, nonce), prepareInputs6(msg), true)
 				continue
 			}
@@ -103,7 +103,7 @@ func test() {
 			if _, err := io.ReadFull(rand.Reader, tempMsg); err != nil {
 				panic(err)
 			}
-			fmt.Printf("test against msg = %s\n", hex.EncodeToString(tempMsg))
+			fmt.Printf("test against random msg = %s\n", hex.EncodeToString(tempMsg))
 			dudect.Dudect(spawnInit6(j, key, nonce), prepareInputs6(tempMsg), true)
 		}
 	}
