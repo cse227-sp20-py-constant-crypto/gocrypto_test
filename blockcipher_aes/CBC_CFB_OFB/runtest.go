@@ -15,6 +15,7 @@ const (
 	numberKeys          = numberMeasurements / 2 // number of various keys used for test 1
 	numberIVs           = numberMeasurements / 2 // number of various IVs used for test 5
 	trialNum            = 3                      // total trail number for this group of test
+	msgTrail            = 100                    // total number of different msgs used to for test 2/6, can set to 1 for debugging
 )
 
 type AESMode int
@@ -73,7 +74,19 @@ func test() {
 	for i := 0; i < 3; i++ {
 		for j := 0; j < 4; j++ {
 			fmt.Printf("<%s Mode Test-2.%d>\n", AESMode(i), j)
-			dudect.Dudect(spawnInit2(i, j, key, iv), prepareInputs2(msg), true)
+			for k := 0; k < msgTrail; k++ {
+				if k == 0 {
+					fmt.Printf("test against msg = %s\n", hex.EncodeToString(msg))
+					dudect.Dudect(spawnInit2(i, j, key, iv), prepareInputs2(msg), true)
+					continue
+				}
+				tempMsg := make([]byte, msgSize)
+				if _, err := io.ReadFull(rand.Reader, tempMsg); err != nil {
+					panic(err)
+				}
+				fmt.Printf("test against msg = %s\n", hex.EncodeToString(tempMsg))
+				dudect.Dudect(spawnInit2(i, j, key, iv), prepareInputs2(tempMsg), true)
+			}
 		}
 	}
 	fmt.Println()
@@ -108,9 +121,22 @@ func test() {
 	// test6
 	fmt.Println("|------------------Start Test-6------------------|")
 	for i := 0; i < 3; i++ {
-		for j := 0; j < 2; j++ {
+		for j := 0; j < 4; j++ {
 			fmt.Printf("<%s Mode Test-6.%d>\n", AESMode(i), j)
-			dudect.Dudect(spawnInit6(i, j, key, iv), prepareInputs6(msg), true)
+			for k := 0; k < msgTrail; k++ {
+				if k == 0 {
+					fmt.Printf("test against msg = %s\n", hex.EncodeToString(msg))
+					dudect.Dudect(spawnInit6(i, j, key, iv), prepareInputs6(msg), true)
+					continue
+				}
+				tempMsg := make([]byte, msgSize)
+				if _, err := io.ReadFull(rand.Reader, tempMsg); err != nil {
+					panic(err)
+				}
+				fmt.Printf("test against msg = %s\n", hex.EncodeToString(tempMsg))
+				dudect.Dudect(spawnInit6(i, j, key, iv), prepareInputs6(tempMsg), true)
+			}
 		}
 	}
+	fmt.Println()
 }

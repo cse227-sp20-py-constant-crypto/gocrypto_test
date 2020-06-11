@@ -10,11 +10,12 @@ import (
 )
 
 const (
-	numberMeasurements  = 1000000                // total measurements for test 1/3/5
+	numberMeasurements  = 10000                  // total measurements for test 1/3/5
 	smallerMeasurements = 10000                  // total measurements for test 2/4/6
 	numberKeys          = numberMeasurements / 2 // number of various keys used for test 1
 	numberNonce         = numberMeasurements / 2 // number of various IVs used for test 5
 	trialNum            = 3                      // total trail number for this group of test
+	msgTrail            = 100                    // total number of different msgs used to for test 2/6, can set to 1 for debugging
 )
 
 func DoTest() {
@@ -51,7 +52,19 @@ func test() {
 	fmt.Println("|------------------Start Test-2------------------|")
 	for j := 0; j < 4; j++ {
 		fmt.Printf("<%s Mode Test-2.%d>\n", "GCM", j)
-		dudect.Dudect(spawnInit2(j, key, nonce), prepareInputs2(msg), true)
+		for k := 0; k < msgTrail; k++ {
+			if k == 0 {
+				fmt.Printf("test against msg = %s\n", hex.EncodeToString(msg))
+				dudect.Dudect(spawnInit2(j, key, nonce), prepareInputs2(msg), true)
+				continue
+			}
+			tempMsg := make([]byte, msgSize)
+			if _, err := io.ReadFull(rand.Reader, tempMsg); err != nil {
+				panic(err)
+			}
+			fmt.Printf("test against msg = %s\n", hex.EncodeToString(tempMsg))
+			dudect.Dudect(spawnInit2(j, key, nonce), prepareInputs2(tempMsg), true)
+		}
 	}
 	fmt.Println()
 
@@ -80,6 +93,18 @@ func test() {
 	fmt.Println("|------------------Start Test-6------------------|")
 	for j := 0; j < 2; j++ {
 		fmt.Printf("<%s Mode Test-6.%d>\n", "GCM", j)
-		dudect.Dudect(spawnInit6(j, key, nonce), prepareInputs6(msg), true)
+		for k := 0; k < msgTrail; k++ {
+			if k == 0 {
+				fmt.Printf("test against msg = %s\n", hex.EncodeToString(msg))
+				dudect.Dudect(spawnInit6(j, key, nonce), prepareInputs6(msg), true)
+				continue
+			}
+			tempMsg := make([]byte, msgSize)
+			if _, err := io.ReadFull(rand.Reader, tempMsg); err != nil {
+				panic(err)
+			}
+			fmt.Printf("test against msg = %s\n", hex.EncodeToString(tempMsg))
+			dudect.Dudect(spawnInit6(j, key, nonce), prepareInputs6(tempMsg), true)
+		}
 	}
 }
