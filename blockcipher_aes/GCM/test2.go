@@ -27,7 +27,7 @@ func spawnInit2(specialKeyMode int, baseKey, baseNonce []byte) func(uint8) func(
 	case 3:
 		binary.BigEndian.PutUint32(sKey, 3)
 	default:
-		panic(specialKeyMode)
+		panic(fmt.Sprintf("specialKeyMode %d not within [0-%d]", specialKeyMode, numSpecialKeyMode-1))
 	}
 
 	return func(class uint8) func([]byte) {

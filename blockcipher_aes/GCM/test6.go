@@ -19,7 +19,7 @@ func spawnInit6(specialNonceMode int, baseKey, baseIV []byte) func(uint8) func([
 	case 1:
 		binary.BigEndian.PutUint32(sNonce, 1)
 	default:
-		panic(specialNonceMode)
+		panic(fmt.Sprintf("specialNonceMode %d not within [0-%d]", specialNonceMode, numSpecialNonceMode-1))
 	}
 
 	return func(class uint8) func([]byte) {

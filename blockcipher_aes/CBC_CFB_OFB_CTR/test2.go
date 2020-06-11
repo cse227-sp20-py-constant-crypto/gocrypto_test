@@ -22,7 +22,7 @@ func spawnInit2(aesMode, specialKeyMode int, baseKey, baseIV []byte) func(uint8)
 	case 3:
 		binary.BigEndian.PutUint32(sKey, 3)
 	default:
-		panic(specialKeyMode)
+		panic(fmt.Sprintf("specialKeyMode %d not within [0-%d]", specialKeyMode, numSpecialKeyMode-1))
 	}
 
 	return func(class uint8) func([]byte) {
@@ -41,6 +41,7 @@ func spawnInit2(aesMode, specialKeyMode int, baseKey, baseIV []byte) func(uint8)
 		if err != nil {
 			panic(err)
 		}
+
 		iv := make([]byte, ivSize)
 		copy(iv, baseIV)
 

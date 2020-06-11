@@ -54,7 +54,7 @@ func spawnInit4(specialMsgMode int, baseKey, baseNonce []byte) ([]byte, func(uin
 	//		panic(err)
 	//	}
 	default:
-		panic(specialMsgMode)
+		panic(fmt.Sprintf("specialMsgMode %d not within [0-%d]", specialMsgMode, numSpecialMsgMode-1))
 	}
 
 	return plaintext, func(_ uint8) func([]byte) {

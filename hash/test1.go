@@ -18,7 +18,7 @@ func spawnInit1(shaMode int) func(uint8) func([]byte) {
 	case 1:
 		h = sha3.New256()
 	default:
-		panic(shaMode)
+		panic(fmt.Sprintf("shaMode %d not within [0-%d]", shaMode, numSHAMode-1))
 	}
 	return func(_ uint8) func([]byte) {
 		return func(plaintext []byte) {

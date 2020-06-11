@@ -50,7 +50,7 @@ func test() {
 
 	// test2
 	fmt.Println("|------------------Start Test-2------------------|")
-	for j := 0; j < 4; j++ {
+	for j := 0; j < numSpecialKeyMode; j++ {
 		fmt.Printf("<%s Mode Test-2.%d>\n", "GCM", j)
 		for k := 0; k < msgTrail; k++ {
 			if k == 0 {
@@ -76,7 +76,7 @@ func test() {
 
 	// test4
 	fmt.Println("|------------------Start Test-4------------------|")
-	for j := 0; j < 2; j++ {
+	for j := 0; j < numSpecialMsgMode; j++ {
 		fmt.Printf("<%s Mode Test-4.%d>\n", "GCM", j)
 		specialMsg, f := spawnInit4(j, key, nonce)
 		dudect.Dudect(f, prepareInputs4(msg, specialMsg), false)
@@ -91,7 +91,7 @@ func test() {
 
 	// test6
 	fmt.Println("|------------------Start Test-6------------------|")
-	for j := 0; j < 2; j++ {
+	for j := 0; j < numSpecialNonceMode; j++ {
 		fmt.Printf("<%s Mode Test-6.%d>\n", "GCM", j)
 		for k := 0; k < msgTrail; k++ {
 			if k == 0 {

@@ -19,7 +19,7 @@ func spawnInit6(aesMode, specialIVMode int, baseKey, baseIV []byte) func(uint8) 
 	case 1:
 		binary.BigEndian.PutUint32(sIV, 1)
 	default:
-		panic(specialIVMode)
+		panic(fmt.Sprintf("specialIVMode %d not within [0-%d]", specialIVMode, numSpecialIVMode-1))
 	}
 
 	return func(class uint8) func([]byte) {

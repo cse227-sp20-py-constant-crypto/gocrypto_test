@@ -54,7 +54,7 @@ func spawnInit4(aesMode, specialMsgMode int, baseKey, baseIV []byte) ([]byte, fu
 			decryptMode := cipher.NewCBCDecrypter(block, iv)
 			decryptMode.CryptBlocks(plaintext, ctxt)
 		default:
-			panic(specialMsgMode)
+			panic(fmt.Sprintf("specialMsgMode %d not within [0-%d]", specialMsgMode, numSpecialMsgMode-1))
 		}
 		return plaintext, func(_ uint8) func([]byte) {
 			return func(plaintext []byte) {

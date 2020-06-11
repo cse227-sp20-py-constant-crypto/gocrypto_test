@@ -14,7 +14,7 @@ const (
 	numberKeys          = numberMeasurements / 2 // number of various keys used for test 1
 	trialNum            = 3                      // total trail number for this group of test
 	msgTrail            = 100                    // total number of different msgs used to for test 2/6, can set to 1 for debugging
-	numHMACMode         = int(NUM) - 1
+	numHMACMode         = int(NUM)
 )
 
 type HMACMode int
@@ -66,7 +66,7 @@ func test() {
 	// test2
 	fmt.Println("|------------------Start Test-2------------------|")
 	for i := 0; i < numHMACMode; i++ {
-		for j := 0; j < 4; j++ {
+		for j := 0; j < numSpecialKeyMode; j++ {
 			fmt.Printf("<%s Mode Test-2.%d>\n", HMACMode(i), j)
 			for k := 0; k < msgTrail; k++ {
 				if k == 0 {
@@ -96,8 +96,8 @@ func test() {
 
 	// test4
 	fmt.Println("|------------------Start Test-4------------------|")
-	for i := 0; i < 2; i++ {
-		for j := 0; j < 2; j++ {
+	for i := 0; i < numHMACMode; i++ {
+		for j := 0; j < numSpecialMsgMode; j++ {
 			fmt.Printf("<%s Mode Test-4.%d>\n", HMACMode(i), j)
 			specialMsg, f := spawnInit4(i, j, key)
 			dudect.Dudect(f, prepareInputs4(msg, specialMsg), false)

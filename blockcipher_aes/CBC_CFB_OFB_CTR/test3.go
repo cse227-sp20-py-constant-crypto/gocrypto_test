@@ -10,24 +10,23 @@ import (
 )
 
 func spawnInit3(aesMode int, baseKey, baseIV []byte) func(uint8) func([]byte) {
+	// constant randomly picked key
+	key := make([]byte, keySize)
+	copy(key, baseKey)
 
-	return func(_ uint8) func([]byte) {
-		// constant randomly picked key
-		key := make([]byte, keySize)
-		copy(key, baseKey)
+	block, err := aes.NewCipher(key)
+	if err != nil {
+		panic(err)
+	}
 
-		block, err := aes.NewCipher(key)
-		if err != nil {
-			panic(err)
-		}
+	// constant randomly picked iv
+	iv := make([]byte, ivSize)
+	copy(iv, baseIV)
 
-		// constant randomly picked iv
-		iv := make([]byte, ivSize)
-		copy(iv, baseIV)
-
-		switch aesMode {
-		case 0:
-			mode := cipher.NewCBCEncrypter(block, iv)
+	switch aesMode {
+	case 0:
+		mode := cipher.NewCBCEncrypter(block, iv)
+		return func(_ uint8) func([]byte) {
 			return func(plaintext []byte) {
 				if len(plaintext)%aes.BlockSize != 0 {
 					panic("plaintext is not a multiple of the block size")
@@ -35,27 +34,33 @@ func spawnInit3(aesMode int, baseKey, baseIV []byte) func(uint8) func([]byte) {
 				ciphertext := make([]byte, len(plaintext))
 				mode.CryptBlocks(ciphertext, plaintext)
 			}
-		case 1:
-			stream := cipher.NewCFBEncrypter(block, iv)
-			return func(plaintext []byte) {
-				ciphertext := make([]byte, len(plaintext))
-				stream.XORKeyStream(ciphertext, plaintext)
-			}
-		case 2:
-			stream := cipher.NewOFB(block, iv)
-			return func(plaintext []byte) {
-				ciphertext := make([]byte, len(plaintext))
-				stream.XORKeyStream(ciphertext, plaintext)
-			}
-		case 3:
-			stream := cipher.NewCTR(block, iv)
-			return func(plaintext []byte) {
-				ciphertext := make([]byte, len(plaintext))
-				stream.XORKeyStream(ciphertext, plaintext)
-			}
-		default:
-			panic(aesMode)
 		}
+	case 1:
+		stream := cipher.NewCFBEncrypter(block, iv)
+		return func(_ uint8) func([]byte) {
+			return func(plaintext []byte) {
+				ciphertext := make([]byte, len(plaintext))
+				stream.XORKeyStream(ciphertext, plaintext)
+			}
+		}
+	case 2:
+		stream := cipher.NewOFB(block, iv)
+		return func(_ uint8) func([]byte) {
+			return func(plaintext []byte) {
+				ciphertext := make([]byte, len(plaintext))
+				stream.XORKeyStream(ciphertext, plaintext)
+			}
+		}
+	case 3:
+		stream := cipher.NewCTR(block, iv)
+		return func(_ uint8) func([]byte) {
+			return func(plaintext []byte) {
+				ciphertext := make([]byte, len(plaintext))
+				stream.XORKeyStream(ciphertext, plaintext)
+			}
+		}
+	default:
+		panic(aesMode)
 	}
 }
 
