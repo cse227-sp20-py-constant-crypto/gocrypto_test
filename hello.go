@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"gocrypto_test/blockcipher_aes/CBC_CFB_OFB"
+)
 
 func main() {
-	fmt.Println("hello")
+	cbc_cfb_ofb_test.DoTest()
 }
