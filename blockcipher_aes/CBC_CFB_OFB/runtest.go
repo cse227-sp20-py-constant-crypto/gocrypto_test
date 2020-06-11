@@ -10,7 +10,7 @@ import (
 )
 
 const (
-	numberMeasurements  = 100000                 // total measurements for test 1/3/5
+	numberMeasurements  = 1000000                // total measurements for test 1/3/5
 	smallerMeasurements = 10000                  // total measurements for test 2/4/6
 	numberKeys          = numberMeasurements / 2 // number of various keys used for test 1
 	numberIVs           = numberMeasurements / 2 // number of various IVs used for test 5
@@ -38,7 +38,7 @@ func (aesMode AESMode) String() string {
 }
 
 func DoTest() {
-	fmt.Println("Start testing AES CBC/CFB/OFB mode.")
+	fmt.Println("Start testing AES-CBC/CFB/OFB.")
 	for i := 0; i < trialNum; i++ {
 		fmt.Printf("<<<<<<<<<<<<<<<Trail %d>>>>>>>>>>>>>>>>\n", i+1)
 		test()
@@ -59,6 +59,7 @@ func test() {
 		panic(err)
 	}
 	fmt.Printf("Randomly chosen baseline parameters (class-0): key = %s, iv = %s,\nmsg = %s\n", hex.EncodeToString(key), hex.EncodeToString(iv), hex.EncodeToString(msg))
+
 	// test1
 	fmt.Println("|------------------Start Test-1------------------|")
 	for i := 0; i < 3; i++ {
@@ -66,6 +67,7 @@ func test() {
 		dudect.Dudect(spawnInit1(i, key, iv), prepareInputs1(msg), true)
 	}
 	fmt.Println()
+
 	// test2
 	fmt.Println("|------------------Start Test-2------------------|")
 	for i := 0; i < 3; i++ {
@@ -75,6 +77,7 @@ func test() {
 		}
 	}
 	fmt.Println()
+
 	// test3
 	fmt.Println("|------------------Start Test-3------------------|")
 	for i := 0; i < 3; i++ {
@@ -82,6 +85,7 @@ func test() {
 		dudect.Dudect(spawnInit3(i, key, iv), prepareInputs3(msg), false)
 	}
 	fmt.Println()
+
 	// test4
 	fmt.Println("|------------------Start Test-4------------------|")
 	for i := 0; i < 3; i++ {
@@ -92,6 +96,7 @@ func test() {
 		}
 	}
 	fmt.Println()
+
 	// test5
 	fmt.Println("|------------------Start Test-5------------------|")
 	for i := 0; i < 3; i++ {
@@ -99,6 +104,7 @@ func test() {
 		dudect.Dudect(spawnInit5(i, key, iv), prepareInputs5(msg), true)
 	}
 	fmt.Println()
+
 	// test6
 	fmt.Println("|------------------Start Test-6------------------|")
 	for i := 0; i < 3; i++ {

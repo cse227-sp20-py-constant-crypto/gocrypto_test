@@ -10,16 +10,16 @@ import (
 	"io"
 )
 
-func spawnInit6(aesMode, specialKeyMode int, baseKey, baseIV []byte) func(uint8) func([]byte) {
+func spawnInit6(aesMode, specialIVMode int, baseKey, baseIV []byte) func(uint8) func([]byte) {
 
 	sIV := make([]byte, ivSize)
-	switch specialKeyMode {
+	switch specialIVMode {
 	case 0:
 		binary.BigEndian.PutUint32(sIV, 0)
 	case 1:
 		binary.BigEndian.PutUint32(sIV, 1)
 	default:
-		panic(specialKeyMode)
+		panic(specialIVMode)
 	}
 
 	return func(class uint8) func([]byte) {

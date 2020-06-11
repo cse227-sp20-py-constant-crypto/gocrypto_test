@@ -1,4 +1,4 @@
-package cbc_cfb_ofb_test
+package gcm_test
 
 import (
 	"crypto/aes"
@@ -9,7 +9,12 @@ import (
 	"io"
 )
 
-func spawnInit3(aesMode int, baseKey, baseIV []byte) func(uint8) func([]byte) {
+//const (
+//	numberMeasurements = 1000000
+//	msgSize = 1024 * aes.BlockSize
+//)
+
+func spawnInit3(baseKey, baseNonce []byte) func(uint8) func([]byte) {
 
 	return func(_ uint8) func([]byte) {
 		// constant randomly picked key
@@ -21,37 +26,17 @@ func spawnInit3(aesMode int, baseKey, baseIV []byte) func(uint8) func([]byte) {
 			panic(err)
 		}
 
-		// constant randomly picked iv
-		iv := make([]byte, ivSize)
-		copy(iv, baseIV)
+		// constant randomly picked nonce
+		nonce := make([]byte, nonceSize)
+		copy(nonce, baseNonce)
 
-		switch aesMode {
-		case 0:
-			mode := cipher.NewCBCEncrypter(block, iv)
-			return func(plaintext []byte) {
-				if len(plaintext)%aes.BlockSize != 0 {
-					panic("plaintext is not a multiple of the block size")
-				}
-				ciphertext := make([]byte, len(plaintext))
-				mode.CryptBlocks(ciphertext, plaintext)
-			}
-		case 1:
-			stream := cipher.NewCFBEncrypter(block, iv)
-			return func(plaintext []byte) {
-				ciphertext := make([]byte, len(plaintext))
-				stream.XORKeyStream(ciphertext, plaintext)
-			}
-		case 2:
-			stream := cipher.NewOFB(block, iv)
-			return func(plaintext []byte) {
-				if len(plaintext)%aes.BlockSize != 0 {
-					panic("plaintext is not a multiple of the block size")
-				}
-				ciphertext := make([]byte, len(plaintext))
-				stream.XORKeyStream(ciphertext, plaintext)
-			}
-		default:
-			panic(aesMode)
+		aesgcm, err := cipher.NewGCMWithNonceSize(block, nonceSize)
+		if err != nil {
+			panic(err)
+		}
+
+		return func(plaintext []byte) {
+			aesgcm.Seal(nil, nonce, plaintext, nil)
 		}
 	}
 }
