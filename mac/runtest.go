@@ -96,8 +96,7 @@ func test() {
 			dudect.Dudect(spawnInit3(i, key), prepareInputs3(msg), false)
 			continue
 		}
-		fmt.Println("?")
-		dudect.Dudect(spawnInit3(i, key), prepareInputs3(msg), true)
+		dudect.Dudect(spawnInit3(i, key), prepareInputs3(msg), true) // need to be true because poly1305 is one-time mac
 	}
 	fmt.Println()
 
@@ -111,7 +110,7 @@ func test() {
 				dudect.Dudect(f, prepareInputs4(msg, specialMsg), false)
 				continue
 			}
-			dudect.Dudect(f, prepareInputs4(msg, specialMsg), true)
+			dudect.Dudect(f, prepareInputs4(msg, specialMsg), true) // need to be true because poly1305 is one-time mac
 		}
 	}
 	fmt.Println()
