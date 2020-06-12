@@ -11,14 +11,14 @@ import (
 	"io"
 )
 
-func spawnInit3(hmacMode int, baseKey []byte) func(uint8) func([]byte) {
+func spawnInit3(macMode int, baseKey []byte) func(uint8) func([]byte) {
 	// constant randomly picked key
 	var aKey [keySize]byte
 	//key := make([]byte, keySize)
 	key := aKey[:]
 	copy(key, baseKey)
 
-	switch hmacMode {
+	switch macMode {
 	case 0:
 		mac := hmac.New(sha256.New, key)
 		return func(_ uint8) func([]byte) {
@@ -44,7 +44,7 @@ func spawnInit3(hmacMode int, baseKey []byte) func(uint8) func([]byte) {
 			}
 		}
 	default:
-		panic(hmacMode)
+		panic(macMode)
 	}
 }
 

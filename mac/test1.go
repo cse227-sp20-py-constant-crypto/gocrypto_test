@@ -11,7 +11,7 @@ import (
 	"io"
 )
 
-func spawnInit1(hmacMode int, baseKey []byte) func(uint8) func([]byte) {
+func spawnInit1(macMode int, baseKey []byte) func(uint8) func([]byte) {
 	var keyArray [numberKeys][]byte
 	for i := range keyArray {
 		keyArray[i] = make([]byte, keySize)
@@ -35,7 +35,7 @@ func spawnInit1(hmacMode int, baseKey []byte) func(uint8) func([]byte) {
 			panic(class)
 		}
 
-		switch hmacMode {
+		switch macMode {
 		case 0:
 			mac := hmac.New(sha256.New, key)
 			return func(plaintext []byte) {
@@ -55,7 +55,7 @@ func spawnInit1(hmacMode int, baseKey []byte) func(uint8) func([]byte) {
 				mac.Sum(nil)
 			}
 		default:
-			panic(hmacMode)
+			panic(macMode)
 		}
 	}
 }

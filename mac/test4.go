@@ -12,7 +12,7 @@ import (
 	"io"
 )
 
-func spawnInit4(hmacMode, specialMsgMode int, baseKey []byte) ([]byte, func(uint8) func([]byte)) {
+func spawnInit4(macMode, specialMsgMode int, baseKey []byte) ([]byte, func(uint8) func([]byte)) {
 
 	// constant randomly picked key
 	var aKey [keySize]byte
@@ -29,7 +29,7 @@ func spawnInit4(hmacMode, specialMsgMode int, baseKey []byte) ([]byte, func(uint
 		panic(fmt.Sprintf("specialMsgMode %d not within [0-%d]", specialMsgMode, numSpecialMsgMode-1))
 	}
 
-	switch hmacMode {
+	switch macMode {
 	case 0:
 		mac := hmac.New(sha256.New, key)
 		return plaintext, func(_ uint8) func([]byte) {
@@ -55,7 +55,7 @@ func spawnInit4(hmacMode, specialMsgMode int, baseKey []byte) ([]byte, func(uint
 			}
 		}
 	default:
-		panic(hmacMode)
+		panic(macMode)
 	}
 }
 

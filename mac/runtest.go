@@ -14,19 +14,19 @@ const (
 	numberKeys          = numberMeasurements / 2 // number of various keys used for test 1
 	trialNum            = 3                      // total trail number for this group of test
 	msgTrail            = 100                    // total number of different msgs used to for test 2/6, can set to 1 for debugging
-	numHMACMode         = int(NUM)
+	numMACMode          = int(NUM)
 )
 
-type HMACMode int
+type MACMode int
 
 const (
-	hmacSHA256 HMACMode = iota
+	hmacSHA256 MACMode = iota
 	hmacSHA3256
 	Poly1305
 	NUM
 )
 
-func (hmacMode HMACMode) String() string {
+func (hmacMode MACMode) String() string {
 	names := [...]string{
 		"HMAC-SHA256",
 		"HMAC-SHA3256",
@@ -59,17 +59,17 @@ func test() {
 
 	// test1
 	fmt.Println("|------------------Start Test-1------------------|")
-	for i := 2; i < numHMACMode; i++ {
-		fmt.Printf("<%s Test-1>\n", HMACMode(i))
+	for i := 2; i < numMACMode; i++ {
+		fmt.Printf("<%s Test-1>\n", MACMode(i))
 		dudect.Dudect(spawnInit1(i, key), prepareInputs1(msg), true)
 	}
 	fmt.Println()
 
 	// test2
 	fmt.Println("|------------------Start Test-2------------------|")
-	for i := 0; i < numHMACMode; i++ {
+	for i := 0; i < numMACMode; i++ {
 		for j := 0; j < numSpecialKeyMode; j++ {
-			fmt.Printf("<%s Mode Test-2.%d>\n", HMACMode(i), j)
+			fmt.Printf("<%s Mode Test-2.%d>\n", MACMode(i), j)
 			for k := 0; k < msgTrail; k++ {
 				if k == 0 {
 					fmt.Printf("test against msg\n")
@@ -90,9 +90,9 @@ func test() {
 
 	// test3
 	fmt.Println("|------------------Start Test-3------------------|")
-	for i := 0; i < numHMACMode; i++ {
-		fmt.Printf("<%s Test-3>\n", HMACMode(i))
-		if HMACMode(i) != Poly1305 {
+	for i := 0; i < numMACMode; i++ {
+		fmt.Printf("<%s Test-3>\n", MACMode(i))
+		if MACMode(i) != Poly1305 {
 			dudect.Dudect(spawnInit3(i, key), prepareInputs3(msg), false)
 			continue
 		}
@@ -103,11 +103,11 @@ func test() {
 
 	// test4
 	fmt.Println("|------------------Start Test-4------------------|")
-	for i := 0; i < numHMACMode; i++ {
+	for i := 0; i < numMACMode; i++ {
 		for j := 0; j < numSpecialMsgMode; j++ {
-			fmt.Printf("<%s Mode Test-4.%d>\n", HMACMode(i), j)
+			fmt.Printf("<%s Mode Test-4.%d>\n", MACMode(i), j)
 			specialMsg, f := spawnInit4(i, j, key)
-			if HMACMode(i) != Poly1305 {
+			if MACMode(i) != Poly1305 {
 				dudect.Dudect(f, prepareInputs4(msg, specialMsg), false)
 				continue
 			}
