@@ -9,11 +9,6 @@ import (
 	"io"
 )
 
-//const (
-//	numberMeasurements = 1000000
-//	msgSize = 1024 * aes.BlockSize
-//)
-
 func spawnInit1(baseKey *rsa.PrivateKey, baseLabel []byte) func(uint8) func([]byte) {
 	return func(class uint8) func([]byte) {
 		var key *rsa.PrivateKey
