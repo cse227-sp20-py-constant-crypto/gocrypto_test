@@ -1,6 +1,6 @@
 package main
 
-import cmp_test "gocrypto_test/compare"
+import ecdsa_test "gocrypto_test/signature/ECDSA"
 
 func main() {
 	//cbc_cfb_ofb_ctr_test.DoTest()
@@ -9,5 +9,6 @@ func main() {
 	//mac_test.DoTest()
 	//salsa20_test.DoTest()
 	//rsa_test.DoTest()
-	cmp_test.DoTest()
+	//cmp_test.DoTest()
+	ecdsa_test.DoTest()
 }
