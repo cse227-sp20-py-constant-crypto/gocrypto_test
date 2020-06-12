@@ -10,7 +10,7 @@ import (
 	"io"
 )
 
-func spawnInit6(specialNonceMode int, baseKey, baseIV []byte) func(uint8) func([]byte) {
+func spawnInit6(specialNonceMode int, baseKey, baseNonce []byte) func(uint8) func([]byte) {
 
 	sNonce := make([]byte, nonceSize)
 	switch specialNonceMode {
@@ -34,7 +34,7 @@ func spawnInit6(specialNonceMode int, baseKey, baseIV []byte) func(uint8) func([
 		nonce := make([]byte, nonceSize)
 		if class == 0 {
 			// class-0 a constant randomly picked key
-			copy(nonce, baseIV)
+			copy(nonce, baseNonce)
 		} else if class == 1 {
 			// class-1 special nonce
 			copy(nonce, sNonce)

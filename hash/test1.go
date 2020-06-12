@@ -11,16 +11,16 @@ import (
 )
 
 func spawnInit1(shaMode int) func(uint8) func([]byte) {
-	var h hash.Hash
-	switch shaMode {
-	case 0:
-		h = sha256.New()
-	case 1:
-		h = sha3.New256()
-	default:
-		panic(fmt.Sprintf("shaMode %d not within [0-%d]", shaMode, numSHAMode-1))
-	}
 	return func(_ uint8) func([]byte) {
+		var h hash.Hash
+		switch shaMode {
+		case 0:
+			h = sha256.New()
+		case 1:
+			h = sha3.New256()
+		default:
+			panic(fmt.Sprintf("shaMode %d not within [0-%d]", shaMode, numSHAMode-1))
+		}
 		return func(plaintext []byte) {
 			h.Write(plaintext)
 			h.Sum(nil)

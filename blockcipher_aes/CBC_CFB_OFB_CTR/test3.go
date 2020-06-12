@@ -25,8 +25,8 @@ func spawnInit3(aesMode int, baseKey, baseIV []byte) func(uint8) func([]byte) {
 
 	switch aesMode {
 	case 0:
-		mode := cipher.NewCBCEncrypter(block, iv)
 		return func(_ uint8) func([]byte) {
+			mode := cipher.NewCBCEncrypter(block, iv)
 			return func(plaintext []byte) {
 				if len(plaintext)%aes.BlockSize != 0 {
 					panic("plaintext is not a multiple of the block size")
@@ -36,24 +36,24 @@ func spawnInit3(aesMode int, baseKey, baseIV []byte) func(uint8) func([]byte) {
 			}
 		}
 	case 1:
-		stream := cipher.NewCFBEncrypter(block, iv)
 		return func(_ uint8) func([]byte) {
+			stream := cipher.NewCFBEncrypter(block, iv)
 			return func(plaintext []byte) {
 				ciphertext := make([]byte, len(plaintext))
 				stream.XORKeyStream(ciphertext, plaintext)
 			}
 		}
 	case 2:
-		stream := cipher.NewOFB(block, iv)
 		return func(_ uint8) func([]byte) {
+			stream := cipher.NewOFB(block, iv)
 			return func(plaintext []byte) {
 				ciphertext := make([]byte, len(plaintext))
 				stream.XORKeyStream(ciphertext, plaintext)
 			}
 		}
 	case 3:
-		stream := cipher.NewCTR(block, iv)
 		return func(_ uint8) func([]byte) {
+			stream := cipher.NewCTR(block, iv)
 			return func(plaintext []byte) {
 				ciphertext := make([]byte, len(plaintext))
 				stream.XORKeyStream(ciphertext, plaintext)

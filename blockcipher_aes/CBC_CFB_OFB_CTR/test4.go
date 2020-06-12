@@ -27,7 +27,6 @@ func spawnInit4(aesMode, specialMsgMode int, baseKey, baseIV []byte) ([]byte, fu
 
 	switch aesMode {
 	case 0:
-		mode := cipher.NewCBCEncrypter(block, iv)
 		plaintext := make([]byte, msgSize)
 		switch specialMsgMode {
 		case 0:
@@ -57,6 +56,7 @@ func spawnInit4(aesMode, specialMsgMode int, baseKey, baseIV []byte) ([]byte, fu
 			panic(fmt.Sprintf("specialMsgMode %d not within [0-%d]", specialMsgMode, numSpecialMsgMode-1))
 		}
 		return plaintext, func(_ uint8) func([]byte) {
+			mode := cipher.NewCBCEncrypter(block, iv)
 			return func(plaintext []byte) {
 				if len(plaintext)%aes.BlockSize != 0 {
 					panic("plaintext is not a multiple of the block size")
@@ -66,7 +66,6 @@ func spawnInit4(aesMode, specialMsgMode int, baseKey, baseIV []byte) ([]byte, fu
 			}
 		}
 	case 1:
-		stream := cipher.NewCFBEncrypter(block, iv)
 		plaintext := make([]byte, msgSize)
 		switch specialMsgMode {
 		case 0:
@@ -96,6 +95,7 @@ func spawnInit4(aesMode, specialMsgMode int, baseKey, baseIV []byte) ([]byte, fu
 			panic(specialMsgMode)
 		}
 		return plaintext, func(_ uint8) func([]byte) {
+			stream := cipher.NewCFBEncrypter(block, iv)
 			return func(plaintext []byte) {
 				ciphertext := make([]byte, len(plaintext))
 				stream.XORKeyStream(ciphertext, plaintext)
@@ -130,6 +130,7 @@ func spawnInit4(aesMode, specialMsgMode int, baseKey, baseIV []byte) ([]byte, fu
 			panic(specialMsgMode)
 		}
 		return plaintext, func(_ uint8) func([]byte) {
+			stream := cipher.NewOFB(block, iv)
 			return func(plaintext []byte) {
 				ciphertext := make([]byte, len(plaintext))
 				stream.XORKeyStream(ciphertext, plaintext)
@@ -164,6 +165,7 @@ func spawnInit4(aesMode, specialMsgMode int, baseKey, baseIV []byte) ([]byte, fu
 			panic(specialMsgMode)
 		}
 		return plaintext, func(_ uint8) func([]byte) {
+			stream := cipher.NewCTR(block, iv)
 			return func(plaintext []byte) {
 				ciphertext := make([]byte, len(plaintext))
 				stream.XORKeyStream(ciphertext, plaintext)

@@ -31,16 +31,16 @@ func spawnInit4(macMode, specialMsgMode int, baseKey []byte) ([]byte, func(uint8
 
 	switch macMode {
 	case 0:
-		mac := hmac.New(sha256.New, key)
 		return plaintext, func(_ uint8) func([]byte) {
+			mac := hmac.New(sha256.New, key)
 			return func(plaintext []byte) {
 				mac.Write(plaintext)
 				mac.Sum(nil)
 			}
 		}
 	case 1:
-		mac := hmac.New(sha3.New256, key)
 		return plaintext, func(_ uint8) func([]byte) {
+			mac := hmac.New(sha3.New256, key)
 			return func(plaintext []byte) {
 				mac.Write(plaintext)
 				mac.Sum(nil)

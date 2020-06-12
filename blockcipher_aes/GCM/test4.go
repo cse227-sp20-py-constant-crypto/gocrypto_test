@@ -25,11 +25,6 @@ func spawnInit4(specialMsgMode int, baseKey, baseNonce []byte) ([]byte, func(uin
 	nonce := make([]byte, nonceSize)
 	copy(nonce, baseNonce)
 
-	aesgcm, err := cipher.NewGCMWithNonceSize(block, nonceSize)
-	if err != nil {
-		panic(err)
-	}
-
 	plaintext := make([]byte, msgSize)
 	switch specialMsgMode {
 	case 0:
@@ -58,6 +53,11 @@ func spawnInit4(specialMsgMode int, baseKey, baseNonce []byte) ([]byte, func(uin
 	}
 
 	return plaintext, func(_ uint8) func([]byte) {
+		aesgcm, err := cipher.NewGCMWithNonceSize(block, nonceSize)
+		if err != nil {
+			panic(err)
+		}
+
 		return func(plaintext []byte) {
 			aesgcm.Seal(nil, nonce, plaintext, nil)
 		}

@@ -1,7 +1,6 @@
 package gcm_test
 
 import (
-	"crypto/aes"
 	"crypto/rand"
 	"encoding/hex"
 	"fmt"
@@ -31,7 +30,7 @@ func test() {
 	if _, err := io.ReadFull(rand.Reader, key); err != nil {
 		panic(err)
 	}
-	nonce := make([]byte, aes.BlockSize)
+	nonce := make([]byte, nonceSize)
 	if _, err := io.ReadFull(rand.Reader, nonce); err != nil {
 		panic(err)
 	}
