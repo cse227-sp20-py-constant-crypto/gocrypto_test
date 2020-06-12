@@ -1,4 +1,4 @@
-package hmac_test
+package mac_test
 
 import "crypto/aes"
 

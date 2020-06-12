@@ -1,4 +1,4 @@
-package hmac_test
+package mac_test
 
 import (
 	"crypto/hmac"
@@ -7,6 +7,7 @@ import (
 	"encoding/binary"
 	"fmt"
 	"github.com/Reapor-Yurnero/godudect"
+	"golang.org/x/crypto/poly1305"
 	"golang.org/x/crypto/sha3"
 	"io"
 )
@@ -14,7 +15,9 @@ import (
 func spawnInit4(hmacMode, specialMsgMode int, baseKey []byte) ([]byte, func(uint8) func([]byte)) {
 
 	// constant randomly picked key
-	key := make([]byte, keySize)
+	var aKey [keySize]byte
+	//key := make([]byte, keySize)
+	key := aKey[:]
 	copy(key, baseKey)
 
 	plaintext := make([]byte, msgSize)
@@ -40,6 +43,14 @@ func spawnInit4(hmacMode, specialMsgMode int, baseKey []byte) ([]byte, func(uint
 		return plaintext, func(_ uint8) func([]byte) {
 			return func(plaintext []byte) {
 				mac.Write(plaintext)
+				mac.Sum(nil)
+			}
+		}
+	case 2:
+		return plaintext, func(_ uint8) func([]byte) {
+			mac := poly1305.New(&aKey)
+			return func(plaintext []byte) {
+				_, _ = mac.Write(plaintext)
 				mac.Sum(nil)
 			}
 		}

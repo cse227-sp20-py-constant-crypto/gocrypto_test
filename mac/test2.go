@@ -1,33 +1,42 @@
-package hmac_test
+package mac_test
 
 import (
 	"crypto/hmac"
 	"crypto/rand"
 	"crypto/sha256"
+	"encoding/binary"
 	"fmt"
 	"github.com/Reapor-Yurnero/godudect"
+	"golang.org/x/crypto/poly1305"
 	"golang.org/x/crypto/sha3"
 	"io"
 )
 
-func spawnInit1(hmacMode int, baseKey []byte) func(uint8) func([]byte) {
-	var keyArray [numberKeys][]byte
-	for i := range keyArray {
-		keyArray[i] = make([]byte, keySize)
-		if _, err := io.ReadFull(rand.Reader, keyArray[i]); err != nil {
-			panic(err)
-		}
+func spawnInit2(hmacMode, specialKeyMode int, baseKey []byte) func(uint8) func([]byte) {
+	sKey := make([]byte, keySize)
+	switch specialKeyMode {
+	case 0:
+		binary.BigEndian.PutUint32(sKey, 0)
+	case 1:
+		binary.BigEndian.PutUint32(sKey, 1)
+	case 2:
+		binary.BigEndian.PutUint32(sKey, 2)
+	case 3:
+		binary.BigEndian.PutUint32(sKey, 3)
+	default:
+		panic(fmt.Sprintf("specialKeyMode %d not within [0-%d]", specialKeyMode, numSpecialKeyMode-1))
 	}
-	counter := 0
+
 	return func(class uint8) func([]byte) {
-		key := make([]byte, keySize)
+		var aKey [keySize]byte
+		//key := make([]byte, keySize)
+		key := aKey[:]
 		if class == 0 {
 			// class-0 a constant randomly picked key
 			copy(key, baseKey)
 		} else if class == 1 {
-			// class-1 varying keys (randomly prepicked)
-			copy(key, keyArray[counter%numberKeys])
-			counter++
+			// class-1 special key (randomly prepicked)
+			copy(key, sKey)
 		} else {
 			panic(class)
 		}
@@ -45,16 +54,22 @@ func spawnInit1(hmacMode int, baseKey []byte) func(uint8) func([]byte) {
 				mac.Write(plaintext)
 				mac.Sum(nil)
 			}
+		case 2:
+			mac := poly1305.New(&aKey)
+			return func(plaintext []byte) {
+				_, _ = mac.Write(plaintext)
+				mac.Sum(nil)
+			}
 		default:
 			panic(hmacMode)
 		}
 	}
 }
 
-func prepareInputs1(baseMsg []byte) func() []dudect.Input {
+func prepareInputs2(baseMsg []byte) func() []dudect.Input {
 	return func() []dudect.Input {
-		var inputs = make([]dudect.Input, numberMeasurements)
-		for i := 0; i < numberMeasurements; i++ {
+		var inputs = make([]dudect.Input, smallerMeasurements)
+		for i := 0; i < smallerMeasurements; i++ {
 			var randByte = make([]byte, 1)
 			if n, err := io.ReadFull(rand.Reader, randByte); err != nil || n != 1 {
 				panic(fmt.Sprintf("Randbit failed with Err: %v, n: %v", err, n))

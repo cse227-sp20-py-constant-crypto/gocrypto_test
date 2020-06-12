@@ -1,10 +1,10 @@
-package hmac_test
+package mac_test
 
 import (
 	"crypto/rand"
 	"encoding/hex"
 	"fmt"
-	dudect "github.com/Reapor-Yurnero/godudect"
+	"github.com/Reapor-Yurnero/godudect"
 	"io"
 )
 
@@ -22,18 +22,20 @@ type HMACMode int
 const (
 	hmacSHA256 HMACMode = iota
 	hmacSHA3256
+	Poly1305
 	NUM
 )
 
-func (aesMode HMACMode) String() string {
+func (hmacMode HMACMode) String() string {
 	names := [...]string{
 		"HMAC-SHA256",
 		"HMAC-SHA3256",
+		"Poly1305",
 	}
-	if aesMode != hmacSHA256 && aesMode != hmacSHA3256 {
+	if hmacMode != hmacSHA256 && hmacMode != hmacSHA3256 && hmacMode != Poly1305 {
 		return "N.A."
 	}
-	return names[aesMode]
+	return names[hmacMode]
 }
 
 func DoTest() {
@@ -57,7 +59,7 @@ func test() {
 
 	// test1
 	fmt.Println("|------------------Start Test-1------------------|")
-	for i := 0; i < numHMACMode; i++ {
+	for i := 2; i < numHMACMode; i++ {
 		fmt.Printf("<%s Test-1>\n", HMACMode(i))
 		dudect.Dudect(spawnInit1(i, key), prepareInputs1(msg), true)
 	}
@@ -90,7 +92,12 @@ func test() {
 	fmt.Println("|------------------Start Test-3------------------|")
 	for i := 0; i < numHMACMode; i++ {
 		fmt.Printf("<%s Test-3>\n", HMACMode(i))
-		dudect.Dudect(spawnInit3(i, key), prepareInputs3(msg), false)
+		if HMACMode(i) != Poly1305 {
+			dudect.Dudect(spawnInit3(i, key), prepareInputs3(msg), false)
+			continue
+		}
+		fmt.Println("?")
+		dudect.Dudect(spawnInit3(i, key), prepareInputs3(msg), true)
 	}
 	fmt.Println()
 
@@ -100,7 +107,11 @@ func test() {
 		for j := 0; j < numSpecialMsgMode; j++ {
 			fmt.Printf("<%s Mode Test-4.%d>\n", HMACMode(i), j)
 			specialMsg, f := spawnInit4(i, j, key)
-			dudect.Dudect(f, prepareInputs4(msg, specialMsg), false)
+			if HMACMode(i) != Poly1305 {
+				dudect.Dudect(f, prepareInputs4(msg, specialMsg), false)
+				continue
+			}
+			dudect.Dudect(f, prepareInputs4(msg, specialMsg), true)
 		}
 	}
 	fmt.Println()
