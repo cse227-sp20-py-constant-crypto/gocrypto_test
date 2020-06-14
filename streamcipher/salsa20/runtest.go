@@ -63,9 +63,9 @@ func test() {
 			}
 			fmt.Printf("test against random msg = %s\n", hex.EncodeToString(tempMsg))
 			dudect.Dudect(spawnInit2(j, key, nonce), prepareInputs2(tempMsg), true)
+			fmt.Println()
 		}
 	}
-	fmt.Println()
 
 	// test3
 	fmt.Println("|------------------Start Test-3------------------|")
@@ -104,6 +104,7 @@ func test() {
 			}
 			fmt.Printf("test against random msg = %s\n", hex.EncodeToString(tempMsg))
 			dudect.Dudect(spawnInit6(j, key, nonce), prepareInputs6(tempMsg), true)
+			fmt.Println()
 		}
 	}
 }

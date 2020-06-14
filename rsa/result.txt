@@ -1,0 +1,1108 @@
+Start testing RSA OAEP.
+<<<<<<<<<<<<<<<Trail 1>>>>>>>>>>>>>>>>
+Randomly chosen baseline parameters (class-0):
+ key.N = 824634155392
+ key.e = 824634155400
+ label = a7b33ffd7fdf78e3feca8fdf9f66e8e5
+ msg = 732f6bcf1dc7d070decfeb04b6d85d48bf21db3a29dbf59a2fea4010dafa5bd8
+===============================
+|------------------Start Test-1------------------|
+<RSA OAEP Test-1>
+Sample size is not large enough, using 40-th sample closest to the suggested size for t-value computation.
+variance:  [1804.9915964901497 1798.7823248635136]
+ratio:  1.0037574620246266
+mean delta:  6.805257475141843
+1818850 is suggested, while the smaller class has only 467869 population (26%).
+total measurements:    0.94 Million
+class-0 mean overall: 6.72e+04, population: 500754; class-1 mean overall: 6.72e+04, population: 499246
+class-0 mean of max_t: 6.39e+04, population: 469627; class-1 mean of max_t: 6.39e+04, population: 467869
+overall t-value:    0.07, max tau: 7.22e-05, (5/tau)^2: 4.80e+09
+max t-value:    1.83, max tau: 1.89e-03, (5/tau)^2: 7.01e+06
+For the moment, maybe constant time.
+
+|------------------Start Test-2------------------|
+<RSA OAEP Test-2.0>
+Sample size is not large enough, using 12-th sample closest to the suggested size for t-value computation.
+variance:  [288.5436380133414 289.51097726771593]
+ratio:  1.0401011560693643
+mean delta:  16.781851136431214
+7561 is suggested, while the smaller class has only 2768 population (37%).
+total measurements:    0.01 Million
+class-0 mean overall: 6.60e+04, population: 4923; class-1 mean overall: 6.59e+04, population: 5077
+class-0 mean of max_t: 6.32e+04, population: 2768; class-1 mean of max_t: 6.31e+04, population: 2879
+overall t-value:    0.21, max tau: 2.08e-03, (5/tau)^2: 5.76e+06
+max t-value:    2.18, max tau: 2.90e-02, (5/tau)^2: 2.97e+04
+For the moment, maybe constant time.
+<RSA OAEP Test-2.1>
+Sample size is not large enough, using 91-th sample closest to the suggested size for t-value computation.
+variance:  [12671.754244360503 9989.799395539596]
+ratio:  1.0062311557788945
+mean delta:  525.393281629862
+12229 is suggested, while the smaller class has only 4975 population (41%).
+total measurements:    0.01 Million
+class-0 mean overall: 6.69e+04, population: 4982; class-1 mean overall: 6.65e+04, population: 5018
+class-0 mean of max_t: 6.65e+04, population: 4975; class-1 mean of max_t: 6.60e+04, population: 5006
+overall t-value:    1.35, max tau: 1.35e-02, (5/tau)^2: 1.38e+05
+max t-value:    2.30, max tau: 2.30e-02, (5/tau)^2: 4.72e+04
+For the moment, maybe constant time.
+<RSA OAEP Test-2.2>
+Sample size is not large enough, using 29-th sample closest to the suggested size for t-value computation.
+variance:  [1506.8902651890924 1476.4621454342682]
+ratio:  1.003701989819528
+mean delta:  61.8741057844818
+15081 is suggested, while the smaller class has only 4322 population (29%).
+total measurements:    0.01 Million
+class-0 mean overall: 6.86e+04, population: 4995; class-1 mean overall: 6.88e+04, population: 5005
+class-0 mean of max_t: 6.43e+04, population: 4338; class-1 mean of max_t: 6.42e+04, population: 4322
+overall t-value:    0.46, max tau: 4.62e-03, (5/tau)^2: 1.17e+06
+max t-value:    1.93, max tau: 2.07e-02, (5/tau)^2: 5.81e+04
+For the moment, maybe constant time.
+<RSA OAEP Test-2.3>
+Sample size is not large enough, using 5-th sample closest to the suggested size for t-value computation.
+variance:  [258.1262942680329 254.30128546528044]
+ratio:  1.0123711340206185
+mean delta:  22.298539343857556
+3411 is suggested, while the smaller class has only 1455 population (43%).
+total measurements:    0.00 Million
+class-0 mean overall: 6.62e+04, population: 4957; class-1 mean overall: 6.64e+04, population: 5043
+class-0 mean of max_t: 6.31e+04, population: 1455; class-1 mean of max_t: 6.31e+04, population: 1473
+overall t-value:    0.67, max tau: 6.71e-03, (5/tau)^2: 5.56e+05
+max t-value:    2.35, max tau: 4.35e-02, (5/tau)^2: 1.32e+04
+For the moment, maybe constant time.
+
+|------------------Start Test-3------------------|
+<RSA OAEP Mode Test-3>
+Sample under percentile 91.75% is computed to have the max-t
+total measurements:    0.92 Million
+class-0 mean overall: 6.81e+04, population: 500366; class-1 mean overall: 7.02e+04, population: 499634
+class-0 mean of max_t: 6.51e+04, population: 464002; class-1 mean of max_t: 6.70e+04, population: 453526
+overall t-value:   52.26, max tau: 5.23e-02, (5/tau)^2: 9.15e+03
+max t-value:  519.59, max tau: 5.42e-01, (5/tau)^2: 8.50e+01
+Definitely not constant time.
+
+|------------------Start Test-4------------------|
+Randomly chosen two key:
+ key1: N = 824634155392, e = 824634155400
+ key2: N = 824634156256, e = 824634156264
+Sample under percentile 53.35% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.32e+04, population: 5081; class-1 mean overall: 7.43e+04, population: 4919
+class-0 mean of max_t: 6.78e+04, population: 2645; class-1 mean of max_t: 6.77e+04, population: 2685
+overall t-value:    1.56, max tau: 1.56e-02, (5/tau)^2: 1.03e+05
+max t-value:    3.08, max tau: 4.22e-02, (5/tau)^2: 1.41e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824637612032, e = 824637612040
+ key2: N = 824637612128, e = 824637612136
+Sample under percentile 99.48% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.46e+04, population: 4939; class-1 mean overall: 7.50e+04, population: 5061
+class-0 mean of max_t: 7.25e+04, population: 4917; class-1 mean of max_t: 7.32e+04, population: 5031
+overall t-value:    0.52, max tau: 5.23e-03, (5/tau)^2: 9.16e+05
+max t-value:    3.60, max tau: 3.61e-02, (5/tau)^2: 1.92e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824636825600, e = 824636825608
+ key2: N = 824636825696, e = 824636825704
+Sample under percentile 99.82% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.32e+04, population: 5054; class-1 mean overall: 7.15e+04, population: 4946
+class-0 mean of max_t: 7.15e+04, population: 5043; class-1 mean of max_t: 7.04e+04, population: 4938
+overall t-value:    2.23, max tau: 2.23e-02, (5/tau)^2: 5.01e+04
+max t-value:    3.49, max tau: 3.49e-02, (5/tau)^2: 2.05e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824635310080, e = 824635310088
+ key2: N = 824635310176, e = 824635310184
+Sample size is not large enough, using 82-th sample closest to the suggested size for t-value computation.
+variance:  [8700.516196766554 9980.981194371056]
+ratio:  1.002612540192926
+mean delta:  -359.4580292481842
+17608 is suggested, while the smaller class has only 4976 population (28%).
+total measurements:    0.01 Million
+class-0 mean overall: 7.32e+04, population: 4999; class-1 mean overall: 7.28e+04, population: 5001
+class-0 mean of max_t: 7.19e+04, population: 4976; class-1 mean of max_t: 7.23e+04, population: 4989
+overall t-value:    0.73, max tau: 7.28e-03, (5/tau)^2: 4.72e+05
+max t-value:    1.92, max tau: 1.92e-02, (5/tau)^2: 6.78e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824779759712, e = 824779759720
+ key2: N = 824779759808, e = 824779759816
+Sample size is not large enough, using 25-th sample closest to the suggested size for t-value computation.
+variance:  [2897.878958292005 2872.7389110373147]
+ratio:  1.004382761139518
+mean delta:  -196.22081147512654
+5608 is suggested, while the smaller class has only 4107 population (73%).
+total measurements:    0.01 Million
+class-0 mean overall: 7.50e+04, population: 5020; class-1 mean overall: 7.44e+04, population: 4980
+class-0 mean of max_t: 6.99e+04, population: 4125; class-1 mean of max_t: 7.01e+04, population: 4107
+overall t-value:    1.00, max tau: 1.00e-02, (5/tau)^2: 2.50e+05
+max t-value:    3.09, max tau: 3.40e-02, (5/tau)^2: 2.16e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824779759712, e = 824779759720
+ key2: N = 824779759808, e = 824779759816
+Sample under percentile 94.56% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.71e+04, population: 5050; class-1 mean overall: 7.62e+04, population: 4950
+class-0 mean of max_t: 7.46e+04, population: 4728; class-1 mean of max_t: 7.41e+04, population: 4727
+overall t-value:    2.37, max tau: 2.37e-02, (5/tau)^2: 4.45e+04
+max t-value:    3.60, max tau: 3.70e-02, (5/tau)^2: 1.83e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824635867328, e = 824635867336
+ key2: N = 824635867424, e = 824635867432
+Sample under percentile 81.05% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.23e+04, population: 5076; class-1 mean overall: 7.40e+04, population: 4924
+class-0 mean of max_t: 6.88e+04, population: 4334; class-1 mean of max_t: 6.90e+04, population: 3771
+overall t-value:    5.26, max tau: 5.26e-02, (5/tau)^2: 9.03e+03
+max t-value:    2.82, max tau: 3.13e-02, (5/tau)^2: 2.55e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824639136032, e = 824639136040
+ key2: N = 824639136128, e = 824639136136
+Sample under percentile 99.74% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.64e+04, population: 5062; class-1 mean overall: 7.47e+04, population: 4938
+class-0 mean of max_t: 7.51e+04, population: 5044; class-1 mean of max_t: 7.42e+04, population: 4930
+overall t-value:    3.16, max tau: 3.16e-02, (5/tau)^2: 2.50e+04
+max t-value:    3.56, max tau: 3.57e-02, (5/tau)^2: 1.96e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824638554208, e = 824638554216
+ key2: N = 824638554304, e = 824638554312
+Sample under percentile 99.90% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.17e+04, population: 4999; class-1 mean overall: 7.26e+04, population: 5001
+class-0 mean of max_t: 7.14e+04, population: 4993; class-1 mean of max_t: 7.23e+04, population: 4996
+overall t-value:    2.58, max tau: 2.58e-02, (5/tau)^2: 3.75e+04
+max t-value:    3.57, max tau: 3.57e-02, (5/tau)^2: 1.96e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824638775776, e = 824638775784
+ key2: N = 824638775872, e = 824638775880
+Sample under percentile 42.57% is computed to have the max-t
+total measurements:    0.00 Million
+class-0 mean overall: 6.95e+04, population: 4947; class-1 mean overall: 7.20e+04, population: 5053
+class-0 mean of max_t: 6.56e+04, population: 2692; class-1 mean of max_t: 6.70e+04, population: 1560
+overall t-value:    7.76, max tau: 7.76e-02, (5/tau)^2: 4.15e+03
+max t-value:   76.47, max tau: 1.17e+00, (5/tau)^2: 1.82e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824636375136, e = 824636375144
+ key2: N = 824636375232, e = 824636375240
+Sample under percentile 29.29% is computed to have the max-t
+total measurements:    0.00 Million
+class-0 mean overall: 7.56e+04, population: 4979; class-1 mean overall: 7.88e+04, population: 5021
+class-0 mean of max_t: 6.49e+04, population: 1890; class-1 mean of max_t: 6.74e+04, population: 1038
+overall t-value:    5.26, max tau: 5.26e-02, (5/tau)^2: 9.03e+03
+max t-value:   69.02, max tau: 1.28e+00, (5/tau)^2: 1.54e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824637612032, e = 824637612040
+ key2: N = 824637612128, e = 824637612136
+Sample under percentile 42.57% is computed to have the max-t
+total measurements:    0.00 Million
+class-0 mean overall: 7.16e+04, population: 4958; class-1 mean overall: 6.89e+04, population: 5042
+class-0 mean of max_t: 6.65e+04, population: 1202; class-1 mean of max_t: 6.48e+04, population: 3053
+overall t-value:    7.72, max tau: 7.72e-02, (5/tau)^2: 4.19e+03
+max t-value:   85.51, max tau: 1.31e+00, (5/tau)^2: 1.45e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824779759712, e = 824779759720
+ key2: N = 824779759808, e = 824779759816
+Sample under percentile 71.28% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.26e+04, population: 4985; class-1 mean overall: 7.08e+04, population: 5015
+class-0 mean of max_t: 6.79e+04, population: 3265; class-1 mean of max_t: 6.67e+04, population: 3862
+overall t-value:    4.01, max tau: 4.01e-02, (5/tau)^2: 1.56e+04
+max t-value:   55.47, max tau: 6.57e-01, (5/tau)^2: 5.79e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824776016064, e = 824776016072
+ key2: N = 824776016160, e = 824776016168
+Sample under percentile 56.47% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.31e+04, population: 5061; class-1 mean overall: 7.30e+04, population: 4939
+class-0 mean of max_t: 6.76e+04, population: 2882; class-1 mean of max_t: 6.77e+04, population: 2765
+overall t-value:    0.14, max tau: 1.40e-03, (5/tau)^2: 1.28e+07
+max t-value:    3.13, max tau: 4.16e-02, (5/tau)^2: 1.44e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824779759712, e = 824779759720
+ key2: N = 824779759808, e = 824779759816
+Sample under percentile 99.90% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.04e+04, population: 5023; class-1 mean overall: 7.16e+04, population: 4977
+class-0 mean of max_t: 7.01e+04, population: 5020; class-1 mean of max_t: 7.11e+04, population: 4970
+overall t-value:    3.41, max tau: 3.41e-02, (5/tau)^2: 2.15e+04
+max t-value:    3.53, max tau: 3.54e-02, (5/tau)^2: 2.00e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824638300352, e = 824638300360
+ key2: N = 824638300448, e = 824638300456
+Sample under percentile 34.02% is computed to have the max-t
+total measurements:    0.00 Million
+class-0 mean overall: 7.26e+04, population: 5093; class-1 mean overall: 7.11e+04, population: 4907
+class-0 mean of max_t: 6.72e+04, population: 1171; class-1 mean of max_t: 6.63e+04, population: 2230
+overall t-value:    4.93, max tau: 4.93e-02, (5/tau)^2: 1.03e+04
+max t-value:   61.14, max tau: 1.05e+00, (5/tau)^2: 2.27e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824635867328, e = 824635867336
+ key2: N = 824635867424, e = 824635867432
+Sample under percentile 91.16% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.41e+04, population: 5004; class-1 mean overall: 7.52e+04, population: 4996
+class-0 mean of max_t: 7.13e+04, population: 4663; class-1 mean of max_t: 7.18e+04, population: 4453
+overall t-value:    2.57, max tau: 2.57e-02, (5/tau)^2: 3.80e+04
+max t-value:    3.60, max tau: 3.77e-02, (5/tau)^2: 1.75e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824768766048, e = 824768766056
+ key2: N = 824768766144, e = 824768766152
+Sample under percentile 12.94% is computed to have the max-t
+total measurements:    0.00 Million
+class-0 mean overall: 7.07e+04, population: 5036; class-1 mean overall: 7.35e+04, population: 4964
+class-0 mean of max_t: 6.46e+04, population: 1289; class-1 mean of max_t: 6.56e+04, population: 4
+overall t-value:    6.95, max tau: 6.95e-02, (5/tau)^2: 5.18e+03
+max t-value:   66.42, max tau: 1.85e+00, (5/tau)^2: 7.33e+00
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824635310080, e = 824635310088
+ key2: N = 824635310176, e = 824635310184
+Sample under percentile 92.82% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 8.01e+04, population: 4997; class-1 mean overall: 7.91e+04, population: 5003
+class-0 mean of max_t: 7.68e+04, population: 4574; class-1 mean of max_t: 7.62e+04, population: 4708
+overall t-value:    2.53, max tau: 2.53e-02, (5/tau)^2: 3.91e+04
+max t-value:    3.47, max tau: 3.60e-02, (5/tau)^2: 1.93e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824634156256, e = 824634156264
+ key2: N = 824634156352, e = 824634156360
+Sample under percentile 99.89% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.73e+04, population: 5012; class-1 mean overall: 7.64e+04, population: 4988
+class-0 mean of max_t: 7.68e+04, population: 5006; class-1 mean of max_t: 7.59e+04, population: 4982
+overall t-value:    2.23, max tau: 2.23e-02, (5/tau)^2: 5.04e+04
+max t-value:    3.59, max tau: 3.60e-02, (5/tau)^2: 1.93e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824638775776, e = 824638775784
+ key2: N = 824638775872, e = 824638775880
+Sample under percentile 59.39% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.46e+04, population: 4962; class-1 mean overall: 7.33e+04, population: 5038
+class-0 mean of max_t: 6.93e+04, population: 2582; class-1 mean of max_t: 6.76e+04, population: 3355
+overall t-value:    1.49, max tau: 1.49e-02, (5/tau)^2: 1.13e+05
+max t-value:   60.09, max tau: 7.80e-01, (5/tau)^2: 4.11e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824639136032, e = 824639136040
+ key2: N = 824639136128, e = 824639136136
+Sample under percentile 99.82% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.72e+04, population: 5019; class-1 mean overall: 7.76e+04, population: 4981
+class-0 mean of max_t: 7.65e+04, population: 5006; class-1 mean of max_t: 7.72e+04, population: 4975
+overall t-value:    1.03, max tau: 1.03e-02, (5/tau)^2: 2.34e+05
+max t-value:    3.60, max tau: 3.61e-02, (5/tau)^2: 1.92e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824638775776, e = 824638775784
+ key2: N = 824638775872, e = 824638775880
+Sample under percentile 73.21% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.27e+04, population: 4943; class-1 mean overall: 7.59e+04, population: 5057
+class-0 mean of max_t: 6.85e+04, population: 4307; class-1 mean of max_t: 6.88e+04, population: 3013
+overall t-value:    6.84, max tau: 6.84e-02, (5/tau)^2: 5.35e+03
+max t-value:    2.81, max tau: 3.28e-02, (5/tau)^2: 2.32e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824776016064, e = 824776016072
+ key2: N = 824776016160, e = 824776016168
+Sample under percentile 78.24% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.50e+04, population: 5069; class-1 mean overall: 7.20e+04, population: 4931
+class-0 mean of max_t: 7.11e+04, population: 3872; class-1 mean of max_t: 6.81e+04, population: 3951
+overall t-value:    6.51, max tau: 6.51e-02, (5/tau)^2: 5.89e+03
+max t-value:   57.22, max tau: 6.47e-01, (5/tau)^2: 5.97e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824636375328, e = 824636375336
+ key2: N = 824636375520, e = 824636375528
+Sample under percentile 34.02% is computed to have the max-t
+total measurements:    0.00 Million
+class-0 mean overall: 7.50e+04, population: 4994; class-1 mean overall: 7.15e+04, population: 5006
+class-0 mean of max_t: 6.82e+04, population: 1099; class-1 mean of max_t: 6.59e+04, population: 2301
+overall t-value:    8.89, max tau: 8.89e-02, (5/tau)^2: 3.16e+03
+max t-value:   78.30, max tau: 1.34e+00, (5/tau)^2: 1.39e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824636375328, e = 824636375336
+ key2: N = 824636375520, e = 824636375528
+Sample under percentile 87.50% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 6.86e+04, population: 4990; class-1 mean overall: 7.22e+04, population: 5010
+class-0 mean of max_t: 6.51e+04, population: 4684; class-1 mean of max_t: 6.85e+04, population: 4065
+overall t-value:    5.78, max tau: 5.78e-02, (5/tau)^2: 7.47e+03
+max t-value:  114.27, max tau: 1.22e+00, (5/tau)^2: 1.68e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824638300352, e = 824638300360
+ key2: N = 824638300448, e = 824638300456
+Sample under percentile 92.31% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.54e+04, population: 4996; class-1 mean overall: 7.63e+04, population: 5004
+class-0 mean of max_t: 7.14e+04, population: 4598; class-1 mean of max_t: 7.18e+04, population: 4632
+overall t-value:    1.26, max tau: 1.26e-02, (5/tau)^2: 1.58e+05
+max t-value:    3.35, max tau: 3.49e-02, (5/tau)^2: 2.06e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824637612032, e = 824637612040
+ key2: N = 824637612128, e = 824637612136
+Sample under percentile 59.39% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.14e+04, population: 5005; class-1 mean overall: 7.41e+04, population: 4995
+class-0 mean of max_t: 6.73e+04, population: 3529; class-1 mean of max_t: 6.87e+04, population: 2406
+overall t-value:    4.48, max tau: 4.48e-02, (5/tau)^2: 1.24e+04
+max t-value:   53.42, max tau: 6.93e-01, (5/tau)^2: 5.20e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824776016160, e = 824776016168
+ key2: N = 824776016256, e = 824776016264
+Sample under percentile 85.64% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.82e+04, population: 5070; class-1 mean overall: 7.79e+04, population: 4930
+class-0 mean of max_t: 7.34e+04, population: 4230; class-1 mean of max_t: 7.39e+04, population: 4334
+overall t-value:    0.60, max tau: 5.98e-03, (5/tau)^2: 7.00e+05
+max t-value:    3.50, max tau: 3.78e-02, (5/tau)^2: 1.75e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824638456000, e = 824638456008
+ key2: N = 824638456096, e = 824638456104
+Sample under percentile 79.69% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.21e+04, population: 5028; class-1 mean overall: 7.25e+04, population: 4972
+class-0 mean of max_t: 6.91e+04, population: 4147; class-1 mean of max_t: 6.93e+04, population: 3821
+overall t-value:    1.16, max tau: 1.16e-02, (5/tau)^2: 1.85e+05
+max t-value:    3.57, max tau: 4.00e-02, (5/tau)^2: 1.56e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824639488000, e = 824639488008
+ key2: N = 824639488096, e = 824639488104
+Sample under percentile 38.44% is computed to have the max-t
+total measurements:    0.00 Million
+class-0 mean overall: 7.41e+04, population: 4972; class-1 mean overall: 7.24e+04, population: 5028
+class-0 mean of max_t: 6.81e+04, population: 1142; class-1 mean of max_t: 6.69e+04, population: 2699
+overall t-value:    3.12, max tau: 3.12e-02, (5/tau)^2: 2.57e+04
+max t-value:   73.98, max tau: 1.19e+00, (5/tau)^2: 1.75e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824635867328, e = 824635867336
+ key2: N = 824635867424, e = 824635867432
+Sample under percentile 34.02% is computed to have the max-t
+total measurements:    0.00 Million
+class-0 mean overall: 7.24e+04, population: 4931; class-1 mean overall: 7.07e+04, population: 5069
+class-0 mean of max_t: 6.70e+04, population: 1006; class-1 mean of max_t: 6.62e+04, population: 2391
+overall t-value:    3.91, max tau: 3.91e-02, (5/tau)^2: 1.64e+04
+max t-value:   54.73, max tau: 9.39e-01, (5/tau)^2: 2.84e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824636825600, e = 824636825608
+ key2: N = 824636825696, e = 824636825704
+Sample under percentile 24.21% is computed to have the max-t
+total measurements:    0.00 Million
+class-0 mean overall: 7.33e+04, population: 4982; class-1 mean overall: 7.62e+04, population: 5018
+class-0 mean of max_t: 6.44e+04, population: 1701; class-1 mean of max_t: 6.56e+04, population: 716
+overall t-value:    7.40, max tau: 7.40e-02, (5/tau)^2: 4.56e+03
+max t-value:   60.67, max tau: 1.23e+00, (5/tau)^2: 1.64e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824779759712, e = 824779759720
+ key2: N = 824779759808, e = 824779759816
+Sample under percentile 98.73% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.34e+04, population: 4919; class-1 mean overall: 7.33e+04, population: 5081
+class-0 mean of max_t: 7.19e+04, population: 4863; class-1 mean of max_t: 7.14e+04, population: 5010
+overall t-value:    0.07, max tau: 6.98e-04, (5/tau)^2: 5.13e+07
+max t-value:    3.60, max tau: 3.62e-02, (5/tau)^2: 1.91e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824776016160, e = 824776016168
+ key2: N = 824776016256, e = 824776016264
+Sample under percentile 53.35% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.40e+04, population: 4993; class-1 mean overall: 6.93e+04, population: 5007
+class-0 mean of max_t: 6.83e+04, population: 1579; class-1 mean of max_t: 6.57e+04, population: 3755
+overall t-value:   10.61, max tau: 1.06e-01, (5/tau)^2: 2.22e+03
+max t-value:  128.60, max tau: 1.76e+00, (5/tau)^2: 8.06e+00
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824634156256, e = 824634156264
+ key2: N = 824634156352, e = 824634156360
+Sample under percentile 98.82% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.46e+04, population: 5015; class-1 mean overall: 7.29e+04, population: 4985
+class-0 mean of max_t: 7.21e+04, population: 4949; class-1 mean of max_t: 7.16e+04, population: 4932
+overall t-value:    2.81, max tau: 2.81e-02, (5/tau)^2: 3.17e+04
+max t-value:    3.60, max tau: 3.62e-02, (5/tau)^2: 1.91e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824638456096, e = 824638456104
+ key2: N = 824638456192, e = 824638456200
+Sample under percentile 69.22% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.64e+04, population: 4987; class-1 mean overall: 7.83e+04, population: 5013
+class-0 mean of max_t: 7.17e+04, population: 3577; class-1 mean of max_t: 7.22e+04, population: 3345
+overall t-value:    4.24, max tau: 4.24e-02, (5/tau)^2: 1.39e+04
+max t-value:    3.57, max tau: 4.29e-02, (5/tau)^2: 1.36e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824768766048, e = 824768766056
+ key2: N = 824768766144, e = 824768766152
+Sample under percentile 94.56% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 8.71e+04, population: 5042; class-1 mean overall: 8.43e+04, population: 4958
+class-0 mean of max_t: 8.34e+04, population: 4672; class-1 mean of max_t: 8.25e+04, population: 4783
+overall t-value:    4.00, max tau: 4.00e-02, (5/tau)^2: 1.56e+04
+max t-value:    3.59, max tau: 3.69e-02, (5/tau)^2: 1.83e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824636375520, e = 824636375528
+ key2: N = 824636375616, e = 824636375624
+Sample under percentile 12.94% is computed to have the max-t
+total measurements:    0.00 Million
+class-0 mean overall: 7.15e+04, population: 5022; class-1 mean overall: 7.30e+04, population: 4978
+class-0 mean of max_t: 6.55e+04, population: 1003; class-1 mean of max_t: 6.62e+04, population: 291
+overall t-value:    4.21, max tau: 4.21e-02, (5/tau)^2: 1.41e+04
+max t-value:   33.32, max tau: 9.26e-01, (5/tau)^2: 2.91e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824779759712, e = 824779759720
+ key2: N = 824779759808, e = 824779759816
+Sample under percentile 99.89% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.78e+04, population: 5016; class-1 mean overall: 7.70e+04, population: 4984
+class-0 mean of max_t: 7.75e+04, population: 5013; class-1 mean of max_t: 7.64e+04, population: 4975
+overall t-value:    1.81, max tau: 1.81e-02, (5/tau)^2: 7.61e+04
+max t-value:    3.58, max tau: 3.58e-02, (5/tau)^2: 1.95e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824768766048, e = 824768766056
+ key2: N = 824768766144, e = 824768766152
+Sample under percentile 38.44% is computed to have the max-t
+total measurements:    0.00 Million
+class-0 mean overall: 6.93e+04, population: 4950; class-1 mean overall: 7.29e+04, population: 5050
+class-0 mean of max_t: 6.49e+04, population: 2525; class-1 mean of max_t: 6.72e+04, population: 1319
+overall t-value:    8.37, max tau: 8.37e-02, (5/tau)^2: 3.57e+03
+max t-value:  103.70, max tau: 1.67e+00, (5/tau)^2: 8.94e+00
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824636375616, e = 824636375624
+ key2: N = 824639136224, e = 824639136232
+Sample under percentile 93.75% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 8.63e+04, population: 5008; class-1 mean overall: 8.91e+04, population: 4992
+class-0 mean of max_t: 8.40e+04, population: 4839; class-1 mean of max_t: 8.52e+04, population: 4535
+overall t-value:    4.28, max tau: 4.28e-02, (5/tau)^2: 1.36e+04
+max t-value:    3.59, max tau: 3.71e-02, (5/tau)^2: 1.81e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824636375328, e = 824636375336
+ key2: N = 824636375424, e = 824636375432
+Sample size is not large enough, using 37-th sample closest to the suggested size for t-value computation.
+variance:  [2270.0783735528453 2326.6780063118217]
+ratio:  1.0470170769571967
+mean delta:  -154.6956683726312
+5606 is suggested, while the smaller class has only 4509 population (80%).
+total measurements:    0.01 Million
+class-0 mean overall: 7.30e+04, population: 4913; class-1 mean overall: 7.26e+04, population: 5087
+class-0 mean of max_t: 6.97e+04, population: 4509; class-1 mean of max_t: 6.99e+04, population: 4721
+overall t-value:    0.74, max tau: 7.44e-03, (5/tau)^2: 4.51e+05
+max t-value:    3.23, max tau: 3.37e-02, (5/tau)^2: 2.21e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824776015968, e = 824776015976
+ key2: N = 824776016064, e = 824776016072
+Sample under percentile 99.86% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.21e+04, population: 4975; class-1 mean overall: 7.38e+04, population: 5025
+class-0 mean of max_t: 7.18e+04, population: 4972; class-1 mean of max_t: 7.27e+04, population: 5014
+overall t-value:    3.23, max tau: 3.23e-02, (5/tau)^2: 2.39e+04
+max t-value:    3.49, max tau: 3.49e-02, (5/tau)^2: 2.05e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824638300352, e = 824638300360
+ key2: N = 824638300448, e = 824638300456
+Sample under percentile 99.76% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.06e+04, population: 4991; class-1 mean overall: 7.18e+04, population: 5009
+class-0 mean of max_t: 6.95e+04, population: 4978; class-1 mean of max_t: 7.04e+04, population: 4997
+overall t-value:    1.69, max tau: 1.69e-02, (5/tau)^2: 8.79e+04
+max t-value:    3.38, max tau: 3.38e-02, (5/tau)^2: 2.18e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824768766048, e = 824768766056
+ key2: N = 824768766144, e = 824768766152
+Sample under percentile 93.30% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.68e+04, population: 4981; class-1 mean overall: 7.55e+04, population: 5019
+class-0 mean of max_t: 7.39e+04, population: 4537; class-1 mean of max_t: 7.34e+04, population: 4792
+overall t-value:    4.06, max tau: 4.06e-02, (5/tau)^2: 1.52e+04
+max t-value:    3.49, max tau: 3.61e-02, (5/tau)^2: 1.92e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824639135936, e = 824639135944
+ key2: N = 824639136224, e = 824639136232
+Sample under percentile 34.02% is computed to have the max-t
+total measurements:    0.00 Million
+class-0 mean overall: 7.91e+04, population: 5038; class-1 mean overall: 7.85e+04, population: 4962
+class-0 mean of max_t: 6.79e+04, population: 1713; class-1 mean of max_t: 6.81e+04, population: 1688
+overall t-value:    1.36, max tau: 1.36e-02, (5/tau)^2: 1.34e+05
+max t-value:    3.47, max tau: 5.94e-02, (5/tau)^2: 7.08e+03
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824637612128, e = 824637612136
+ key2: N = 824637612224, e = 824637612232
+Sample under percentile 92.31% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 6.96e+04, population: 5031; class-1 mean overall: 7.28e+04, population: 4969
+class-0 mean of max_t: 6.66e+04, population: 4753; class-1 mean of max_t: 6.97e+04, population: 4477
+overall t-value:    5.93, max tau: 5.93e-02, (5/tau)^2: 7.11e+03
+max t-value:   85.14, max tau: 8.86e-01, (5/tau)^2: 3.18e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824640544864, e = 824640544872
+ key2: N = 824640544960, e = 824640544968
+Sample under percentile 99.72% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.34e+04, population: 4967; class-1 mean overall: 7.36e+04, population: 5033
+class-0 mean of max_t: 7.24e+04, population: 4950; class-1 mean of max_t: 7.30e+04, population: 5022
+overall t-value:    0.64, max tau: 6.41e-03, (5/tau)^2: 6.08e+05
+max t-value:    3.57, max tau: 3.58e-02, (5/tau)^2: 1.96e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824636825600, e = 824636825608
+ key2: N = 824636825696, e = 824636825704
+Sample under percentile 56.47% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.24e+04, population: 5060; class-1 mean overall: 7.14e+04, population: 4940
+class-0 mean of max_t: 6.61e+04, population: 2884; class-1 mean of max_t: 6.59e+04, population: 2763
+overall t-value:    1.50, max tau: 1.50e-02, (5/tau)^2: 1.11e+05
+max t-value:    2.89, max tau: 3.85e-02, (5/tau)^2: 1.68e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824768766048, e = 824768766056
+ key2: N = 824768766144, e = 824768766152
+Sample under percentile 34.02% is computed to have the max-t
+total measurements:    0.00 Million
+class-0 mean overall: 7.67e+04, population: 5007; class-1 mean overall: 7.34e+04, population: 4993
+class-0 mean of max_t: 6.63e+04, population: 999; class-1 mean of max_t: 6.50e+04, population: 2403
+overall t-value:    6.22, max tau: 6.22e-02, (5/tau)^2: 6.45e+03
+max t-value:   64.55, max tau: 1.11e+00, (5/tau)^2: 2.04e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824635310080, e = 824635310088
+ key2: N = 824635310176, e = 824635310184
+Sample under percentile 46.41% is computed to have the max-t
+total measurements:    0.00 Million
+class-0 mean overall: 7.22e+04, population: 4980; class-1 mean overall: 6.86e+04, population: 5020
+class-0 mean of max_t: 6.73e+04, population: 1396; class-1 mean of max_t: 6.50e+04, population: 3244
+overall t-value:   10.19, max tau: 1.02e-01, (5/tau)^2: 2.41e+03
+max t-value:  118.78, max tau: 1.74e+00, (5/tau)^2: 8.22e+00
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824640544864, e = 824640544872
+ key2: N = 824640544960, e = 824640544968
+Sample under percentile 76.67% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.14e+04, population: 5010; class-1 mean overall: 7.30e+04, population: 4990
+class-0 mean of max_t: 6.87e+04, population: 4238; class-1 mean of max_t: 6.89e+04, population: 3429
+overall t-value:    4.45, max tau: 4.45e-02, (5/tau)^2: 1.26e+04
+max t-value:    2.89, max tau: 3.30e-02, (5/tau)^2: 2.29e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824636375328, e = 824636375336
+ key2: N = 824636375424, e = 824636375432
+Sample under percentile 82.32% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.43e+04, population: 5059; class-1 mean overall: 8.39e+04, population: 4941
+class-0 mean of max_t: 6.88e+04, population: 4093; class-1 mean of max_t: 6.93e+04, population: 4139
+overall t-value:    0.96, max tau: 9.64e-03, (5/tau)^2: 2.69e+05
+max t-value:    3.55, max tau: 3.91e-02, (5/tau)^2: 1.64e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824636375328, e = 824636375336
+ key2: N = 824636375424, e = 824636375432
+Sample under percentile 88.34% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.06e+04, population: 4955; class-1 mean overall: 7.14e+04, population: 5045
+class-0 mean of max_t: 6.79e+04, population: 4423; class-1 mean of max_t: 6.81e+04, population: 4409
+overall t-value:    2.09, max tau: 2.09e-02, (5/tau)^2: 5.71e+04
+max t-value:    3.58, max tau: 3.81e-02, (5/tau)^2: 1.72e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824640544864, e = 824640544872
+ key2: N = 824640544960, e = 824640544968
+Sample under percentile 38.44% is computed to have the max-t
+total measurements:    0.00 Million
+class-0 mean overall: 7.59e+04, population: 5065; class-1 mean overall: 7.46e+04, population: 4935
+class-0 mean of max_t: 6.78e+04, population: 1723; class-1 mean of max_t: 6.67e+04, population: 2121
+overall t-value:    3.48, max tau: 3.48e-02, (5/tau)^2: 2.06e+04
+max t-value:   39.75, max tau: 6.41e-01, (5/tau)^2: 6.08e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824639488096, e = 824639488104
+ key2: N = 824639488192, e = 824639488200
+Sample under percentile 18.77% is computed to have the max-t
+total measurements:    0.00 Million
+class-0 mean overall: 7.36e+04, population: 5118; class-1 mean overall: 7.65e+04, population: 4882
+class-0 mean of max_t: 6.53e+04, population: 1534; class-1 mean of max_t: 6.72e+04, population: 340
+overall t-value:    8.38, max tau: 8.38e-02, (5/tau)^2: 3.56e+03
+max t-value:   69.30, max tau: 1.60e+00, (5/tau)^2: 9.75e+00
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824776016064, e = 824776016072
+ key2: N = 824776016160, e = 824776016168
+Sample under percentile 62.11% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.25e+04, population: 4903; class-1 mean overall: 7.04e+04, population: 5097
+class-0 mean of max_t: 6.79e+04, population: 2739; class-1 mean of max_t: 6.63e+04, population: 3471
+overall t-value:    5.53, max tau: 5.53e-02, (5/tau)^2: 8.17e+03
+max t-value:   40.82, max tau: 5.18e-01, (5/tau)^2: 9.32e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824637612128, e = 824637612136
+ key2: N = 824637612224, e = 824637612232
+Sample under percentile 24.21% is computed to have the max-t
+total measurements:    0.00 Million
+class-0 mean overall: 7.89e+04, population: 5003; class-1 mean overall: 7.94e+04, population: 4997
+class-0 mean of max_t: 6.75e+04, population: 1175; class-1 mean of max_t: 6.74e+04, population: 1246
+overall t-value:    0.98, max tau: 9.84e-03, (5/tau)^2: 2.58e+05
+max t-value:    4.46, max tau: 9.07e-02, (5/tau)^2: 3.04e+03
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824639136320, e = 824639136328
+ key2: N = 824639136512, e = 824639136520
+Sample under percentile 99.80% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.55e+04, population: 5010; class-1 mean overall: 7.45e+04, population: 4990
+class-0 mean of max_t: 7.46e+04, population: 5000; class-1 mean of max_t: 7.37e+04, population: 4980
+overall t-value:    1.98, max tau: 1.98e-02, (5/tau)^2: 6.39e+04
+max t-value:    3.44, max tau: 3.45e-02, (5/tau)^2: 2.11e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824638775776, e = 824638775784
+ key2: N = 824638775872, e = 824638775880
+Sample size is not large enough, using 3-th sample closest to the suggested size for t-value computation.
+variance:  [1088.7067418480594 1083.1114096480787]
+ratio:  1.0248112189859762
+mean delta:  -143.39614829958737
+1473 is suggested, while the smaller class has only 927 population (63%).
+total measurements:    0.00 Million
+class-0 mean overall: 7.68e+04, population: 4995; class-1 mean overall: 7.77e+04, population: 5005
+class-0 mean of max_t: 6.44e+04, population: 950; class-1 mean of max_t: 6.45e+04, population: 927
+overall t-value:    1.90, max tau: 1.90e-02, (5/tau)^2: 6.89e+04
+max t-value:    2.86, max tau: 6.60e-02, (5/tau)^2: 5.74e+03
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824640544864, e = 824640544872
+ key2: N = 824640544960, e = 824640544968
+Sample under percentile 99.90% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.29e+04, population: 4960; class-1 mean overall: 7.11e+04, population: 5040
+class-0 mean of max_t: 7.19e+04, population: 4952; class-1 mean of max_t: 7.08e+04, population: 5037
+overall t-value:    3.32, max tau: 3.32e-02, (5/tau)^2: 2.27e+04
+max t-value:    3.55, max tau: 3.55e-02, (5/tau)^2: 1.98e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824636375328, e = 824636375336
+ key2: N = 824636375424, e = 824636375432
+Sample under percentile 18.77% is computed to have the max-t
+total measurements:    0.00 Million
+class-0 mean overall: 7.51e+04, population: 5011; class-1 mean overall: 7.32e+04, population: 4989
+class-0 mean of max_t: 6.69e+04, population: 436; class-1 mean of max_t: 6.60e+04, population: 1438
+overall t-value:    3.43, max tau: 3.43e-02, (5/tau)^2: 2.12e+04
+max t-value:   38.28, max tau: 8.84e-01, (5/tau)^2: 3.20e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824638300352, e = 824638300360
+ key2: N = 824638300448, e = 824638300456
+Sample under percentile 34.02% is computed to have the max-t
+total measurements:    0.00 Million
+class-0 mean overall: 7.36e+04, population: 4996; class-1 mean overall: 7.55e+04, population: 5004
+class-0 mean of max_t: 6.59e+04, population: 2182; class-1 mean of max_t: 6.73e+04, population: 1219
+overall t-value:    2.60, max tau: 2.60e-02, (5/tau)^2: 3.69e+04
+max t-value:   52.10, max tau: 8.93e-01, (5/tau)^2: 3.13e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824638456096, e = 824638456104
+ key2: N = 824638456192, e = 824638456200
+Sample under percentile 56.47% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.09e+04, population: 4866; class-1 mean overall: 7.34e+04, population: 5134
+class-0 mean of max_t: 6.69e+04, population: 3311; class-1 mean of max_t: 6.87e+04, population: 2332
+overall t-value:    7.59, max tau: 7.59e-02, (5/tau)^2: 4.35e+03
+max t-value:   74.54, max tau: 9.92e-01, (5/tau)^2: 2.54e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824638775776, e = 824638775784
+ key2: N = 824638775872, e = 824638775880
+Sample under percentile 78.24% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.53e+04, population: 5003; class-1 mean overall: 7.75e+04, population: 4997
+class-0 mean of max_t: 7.15e+04, population: 4330; class-1 mean of max_t: 7.19e+04, population: 3493
+overall t-value:    4.29, max tau: 4.29e-02, (5/tau)^2: 1.36e+04
+max t-value:    3.68, max tau: 4.16e-02, (5/tau)^2: 1.45e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824634156256, e = 824634156264
+ key2: N = 824634156352, e = 824634156360
+Sample under percentile 29.29% is computed to have the max-t
+total measurements:    0.00 Million
+class-0 mean overall: 7.28e+04, population: 5030; class-1 mean overall: 7.55e+04, population: 4970
+class-0 mean of max_t: 6.67e+04, population: 1930; class-1 mean of max_t: 6.81e+04, population: 998
+overall t-value:    5.16, max tau: 5.16e-02, (5/tau)^2: 9.40e+03
+max t-value:   43.72, max tau: 8.08e-01, (5/tau)^2: 3.83e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824638554304, e = 824638554312
+ key2: N = 824638554592, e = 824638554600
+Sample under percentile 81.05% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.31e+04, population: 5003; class-1 mean overall: 7.16e+04, population: 4997
+class-0 mean of max_t: 6.80e+04, population: 3838; class-1 mean of max_t: 6.60e+04, population: 4266
+overall t-value:    1.71, max tau: 1.71e-02, (5/tau)^2: 8.57e+04
+max t-value:   70.61, max tau: 7.84e-01, (5/tau)^2: 4.06e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824638554304, e = 824638554312
+ key2: N = 824638554592, e = 824638554600
+Sample under percentile 34.02% is computed to have the max-t
+total measurements:    0.00 Million
+class-0 mean overall: 7.71e+04, population: 5008; class-1 mean overall: 7.30e+04, population: 4992
+class-0 mean of max_t: 6.83e+04, population: 882; class-1 mean of max_t: 6.59e+04, population: 2518
+overall t-value:    7.52, max tau: 7.52e-02, (5/tau)^2: 4.42e+03
+max t-value:  100.00, max tau: 1.72e+00, (5/tau)^2: 8.50e+00
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824779759712, e = 824779759720
+ key2: N = 824779759808, e = 824779759816
+Sample under percentile 95.88% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 8.38e+04, population: 4977; class-1 mean overall: 8.27e+04, population: 5023
+class-0 mean of max_t: 8.16e+04, population: 4751; class-1 mean of max_t: 8.06e+04, population: 4836
+overall t-value:    2.66, max tau: 2.66e-02, (5/tau)^2: 3.52e+04
+max t-value:    3.50, max tau: 3.58e-02, (5/tau)^2: 1.95e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824638775776, e = 824638775784
+ key2: N = 824638775872, e = 824638775880
+Sample size is not large enough, using 9-th sample closest to the suggested size for t-value computation.
+variance:  [1800.9742469780667 1756.637744698886]
+ratio:  1.0408970976253298
+mean delta:  136.52451027928328
+4329 is suggested, while the smaller class has only 2274 population (53%).
+total measurements:    0.00 Million
+class-0 mean overall: 7.78e+04, population: 4896; class-1 mean overall: 7.81e+04, population: 5104
+class-0 mean of max_t: 6.84e+04, population: 2274; class-1 mean of max_t: 6.83e+04, population: 2367
+overall t-value:    0.67, max tau: 6.70e-03, (5/tau)^2: 5.56e+05
+max t-value:    2.61, max tau: 3.84e-02, (5/tau)^2: 1.70e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824640544864, e = 824640544872
+ key2: N = 824640544960, e = 824640544968
+Sample under percentile 99.37% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 8.39e+04, population: 4990; class-1 mean overall: 8.29e+04, population: 5010
+class-0 mean of max_t: 8.24e+04, population: 4962; class-1 mean of max_t: 8.14e+04, population: 4974
+overall t-value:    1.87, max tau: 1.87e-02, (5/tau)^2: 7.19e+04
+max t-value:    3.60, max tau: 3.61e-02, (5/tau)^2: 1.91e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824635310080, e = 824635310088
+ key2: N = 824635310176, e = 824635310184
+Sample under percentile 88.34% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.92e+04, population: 4959; class-1 mean overall: 7.99e+04, population: 5041
+class-0 mean of max_t: 7.49e+04, population: 4451; class-1 mean of max_t: 7.53e+04, population: 4382
+overall t-value:    1.19, max tau: 1.19e-02, (5/tau)^2: 1.76e+05
+max t-value:    3.59, max tau: 3.82e-02, (5/tau)^2: 1.72e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824636825600, e = 824636825608
+ key2: N = 824636825792, e = 824636825800
+Sample under percentile 59.39% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.27e+04, population: 4937; class-1 mean overall: 7.03e+04, population: 5063
+class-0 mean of max_t: 6.81e+04, population: 2044; class-1 mean of max_t: 6.60e+04, population: 3894
+overall t-value:    3.87, max tau: 3.87e-02, (5/tau)^2: 1.67e+04
+max t-value:   89.00, max tau: 1.15e+00, (5/tau)^2: 1.87e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824636375328, e = 824636375336
+ key2: N = 824636375424, e = 824636375432
+Sample under percentile 87.50% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.38e+04, population: 4960; class-1 mean overall: 7.68e+04, population: 5040
+class-0 mean of max_t: 7.08e+04, population: 4565; class-1 mean of max_t: 7.13e+04, population: 4184
+overall t-value:    7.67, max tau: 7.67e-02, (5/tau)^2: 4.24e+03
+max t-value:    3.67, max tau: 3.92e-02, (5/tau)^2: 1.63e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824638300352, e = 824638300360
+ key2: N = 824638300448, e = 824638300456
+Sample under percentile 99.41% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.24e+04, population: 4886; class-1 mean overall: 7.27e+04, population: 5114
+class-0 mean of max_t: 7.13e+04, population: 4853; class-1 mean of max_t: 7.18e+04, population: 5087
+overall t-value:    0.79, max tau: 7.91e-03, (5/tau)^2: 3.99e+05
+max t-value:    3.52, max tau: 3.53e-02, (5/tau)^2: 2.00e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824639136320, e = 824639136328
+ key2: N = 824639136512, e = 824639136520
+Sample under percentile 29.29% is computed to have the max-t
+total measurements:    0.00 Million
+class-0 mean overall: 7.85e+04, population: 5030; class-1 mean overall: 7.88e+04, population: 4970
+class-0 mean of max_t: 6.74e+04, population: 1500; class-1 mean of max_t: 6.76e+04, population: 1428
+overall t-value:    0.85, max tau: 8.51e-03, (5/tau)^2: 3.46e+05
+max t-value:    3.19, max tau: 5.90e-02, (5/tau)^2: 7.19e+03
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824635310560, e = 824635310568
+ key2: N = 824635310656, e = 824635310664
+Sample under percentile 93.30% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.49e+04, population: 5040; class-1 mean overall: 7.65e+04, population: 4960
+class-0 mean of max_t: 7.28e+04, population: 4879; class-1 mean of max_t: 7.34e+04, population: 4451
+overall t-value:    3.48, max tau: 3.48e-02, (5/tau)^2: 2.07e+04
+max t-value:    3.53, max tau: 3.65e-02, (5/tau)^2: 1.87e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824638455904, e = 824638455912
+ key2: N = 824638456096, e = 824638456104
+Sample under percentile 99.85% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.35e+04, population: 4970; class-1 mean overall: 7.48e+04, population: 5030
+class-0 mean of max_t: 7.30e+04, population: 4963; class-1 mean of max_t: 7.39e+04, population: 5022
+overall t-value:    2.78, max tau: 2.78e-02, (5/tau)^2: 3.24e+04
+max t-value:    3.49, max tau: 3.49e-02, (5/tau)^2: 2.05e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824637612128, e = 824637612136
+ key2: N = 824637612224, e = 824637612232
+Sample under percentile 38.44% is computed to have the max-t
+total measurements:    0.00 Million
+class-0 mean overall: 7.10e+04, population: 5050; class-1 mean overall: 7.47e+04, population: 4950
+class-0 mean of max_t: 6.53e+04, population: 2803; class-1 mean of max_t: 6.74e+04, population: 1040
+overall t-value:    9.93, max tau: 9.93e-02, (5/tau)^2: 2.54e+03
+max t-value:  102.81, max tau: 1.66e+00, (5/tau)^2: 9.09e+00
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824638300448, e = 824638300456
+ key2: N = 824638300544, e = 824638300552
+Sample size is not large enough, using 77-th sample closest to the suggested size for t-value computation.
+variance:  [9758.048382518866 9216.055793896843]
+ratio:  1.017639902676399
+mean delta:  203.8536891926051
+55880 is suggested, while the smaller class has only 4932 population (9%).
+total measurements:    0.01 Million
+class-0 mean overall: 7.85e+04, population: 5039; class-1 mean overall: 7.87e+04, population: 4961
+class-0 mean of max_t: 7.79e+04, population: 5019; class-1 mean of max_t: 7.77e+04, population: 4932
+overall t-value:    0.49, max tau: 4.90e-03, (5/tau)^2: 1.04e+06
+max t-value:    1.07, max tau: 1.07e-02, (5/tau)^2: 2.17e+05
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824638300448, e = 824638300456
+ key2: N = 824638300544, e = 824638300552
+Sample under percentile 29.29% is computed to have the max-t
+total measurements:    0.00 Million
+class-0 mean overall: 7.56e+04, population: 4975; class-1 mean overall: 7.59e+04, population: 5025
+class-0 mean of max_t: 6.82e+04, population: 1465; class-1 mean of max_t: 6.83e+04, population: 1463
+overall t-value:    0.84, max tau: 8.35e-03, (5/tau)^2: 3.58e+05
+max t-value:    4.27, max tau: 7.89e-02, (5/tau)^2: 4.01e+03
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824639136512, e = 824639136520
+ key2: N = 824639136896, e = 824639136904
+Sample under percentile 71.28% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.53e+04, population: 5025; class-1 mean overall: 7.75e+04, population: 4975
+class-0 mean of max_t: 7.05e+04, population: 3859; class-1 mean of max_t: 7.07e+04, population: 3268
+overall t-value:    5.56, max tau: 5.56e-02, (5/tau)^2: 8.09e+03
+max t-value:    2.30, max tau: 2.72e-02, (5/tau)^2: 3.38e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824640544960, e = 824640544968
+ key2: N = 824640545248, e = 824640545256
+Sample under percentile 83.51% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.38e+04, population: 4911; class-1 mean overall: 7.51e+04, population: 5089
+class-0 mean of max_t: 7.12e+04, population: 4372; class-1 mean of max_t: 7.09e+04, population: 3978
+overall t-value:    3.08, max tau: 3.08e-02, (5/tau)^2: 2.64e+04
+max t-value:    3.66, max tau: 4.00e-02, (5/tau)^2: 1.56e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824637612128, e = 824637612136
+ key2: N = 824637612224, e = 824637612232
+Sample under percentile 64.64% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.17e+04, population: 4922; class-1 mean overall: 7.36e+04, population: 5078
+class-0 mean of max_t: 6.65e+04, population: 3796; class-1 mean of max_t: 6.84e+04, population: 2668
+overall t-value:    2.59, max tau: 2.59e-02, (5/tau)^2: 3.73e+04
+max t-value:   65.49, max tau: 8.15e-01, (5/tau)^2: 3.77e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824639136512, e = 824639136520
+ key2: N = 824639136896, e = 824639136904
+Sample under percentile 92.82% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.04e+04, population: 5059; class-1 mean overall: 7.05e+04, population: 4941
+class-0 mean of max_t: 6.77e+04, population: 4721; class-1 mean of max_t: 6.79e+04, population: 4561
+overall t-value:    0.26, max tau: 2.61e-03, (5/tau)^2: 3.68e+06
+max t-value:    3.60, max tau: 3.74e-02, (5/tau)^2: 1.79e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824638455904, e = 824638455912
+ key2: N = 824638456096, e = 824638456104
+Sample under percentile 99.74% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.71e+04, population: 4965; class-1 mean overall: 7.67e+04, population: 5035
+class-0 mean of max_t: 7.67e+04, population: 4957; class-1 mean of max_t: 7.58e+04, population: 5017
+overall t-value:    0.97, max tau: 9.69e-03, (5/tau)^2: 2.66e+05
+max t-value:    3.54, max tau: 3.55e-02, (5/tau)^2: 1.99e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824639488192, e = 824639488200
+ key2: N = 824639488384, e = 824639488392
+Sample under percentile 34.02% is computed to have the max-t
+total measurements:    0.00 Million
+class-0 mean overall: 7.28e+04, population: 5007; class-1 mean overall: 7.55e+04, population: 4993
+class-0 mean of max_t: 6.62e+04, population: 2169; class-1 mean of max_t: 6.75e+04, population: 1233
+overall t-value:    5.39, max tau: 5.39e-02, (5/tau)^2: 8.60e+03
+max t-value:   44.69, max tau: 7.66e-01, (5/tau)^2: 4.26e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824638300544, e = 824638300552
+ key2: N = 824638300832, e = 824638300840
+Sample under percentile 90.53% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.84e+04, population: 5038; class-1 mean overall: 7.80e+04, population: 4962
+class-0 mean of max_t: 7.55e+04, population: 4436; class-1 mean of max_t: 7.49e+04, population: 4616
+overall t-value:    0.83, max tau: 8.30e-03, (5/tau)^2: 3.62e+05
+max t-value:    3.59, max tau: 3.77e-02, (5/tau)^2: 1.76e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824638554304, e = 824638554312
+ key2: N = 824638554592, e = 824638554600
+Sample under percentile 46.41% is computed to have the max-t
+total measurements:    0.00 Million
+class-0 mean overall: 7.57e+04, population: 5020; class-1 mean overall: 7.62e+04, population: 4980
+class-0 mean of max_t: 6.74e+04, population: 2239; class-1 mean of max_t: 6.73e+04, population: 2399
+overall t-value:    0.77, max tau: 7.65e-03, (5/tau)^2: 4.27e+05
+max t-value:    3.56, max tau: 5.23e-02, (5/tau)^2: 9.14e+03
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824638300544, e = 824638300552
+ key2: N = 824638300832, e = 824638300840
+Sample under percentile 79.69% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.60e+04, population: 4931; class-1 mean overall: 7.58e+04, population: 5069
+class-0 mean of max_t: 7.05e+04, population: 3900; class-1 mean of max_t: 7.02e+04, population: 4067
+overall t-value:    0.47, max tau: 4.73e-03, (5/tau)^2: 1.12e+06
+max t-value:    3.49, max tau: 3.91e-02, (5/tau)^2: 1.64e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824639136512, e = 824639136520
+ key2: N = 824639136896, e = 824639136904
+Sample under percentile 91.16% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.78e+04, population: 5030; class-1 mean overall: 7.93e+04, population: 4970
+class-0 mean of max_t: 7.49e+04, population: 4731; class-1 mean of max_t: 7.54e+04, population: 4385
+overall t-value:    3.15, max tau: 3.15e-02, (5/tau)^2: 2.53e+04
+max t-value:    3.24, max tau: 3.39e-02, (5/tau)^2: 2.17e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824779759712, e = 824779759720
+ key2: N = 824779759808, e = 824779759816
+Sample under percentile 95.58% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.29e+04, population: 4947; class-1 mean overall: 7.34e+04, population: 5053
+class-0 mean of max_t: 6.94e+04, population: 4720; class-1 mean of max_t: 6.97e+04, population: 4838
+overall t-value:    0.79, max tau: 7.92e-03, (5/tau)^2: 3.99e+05
+max t-value:    3.59, max tau: 3.67e-02, (5/tau)^2: 1.85e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824639488192, e = 824639488200
+ key2: N = 824639488384, e = 824639488392
+Sample under percentile 64.64% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.11e+04, population: 5054; class-1 mean overall: 7.24e+04, population: 4946
+class-0 mean of max_t: 6.57e+04, population: 3536; class-1 mean of max_t: 6.69e+04, population: 2928
+overall t-value:    2.78, max tau: 2.78e-02, (5/tau)^2: 3.24e+04
+max t-value:   43.83, max tau: 5.45e-01, (5/tau)^2: 8.41e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824639136512, e = 824639136520
+ key2: N = 824639136896, e = 824639136904
+Sample under percentile 42.57% is computed to have the max-t
+total measurements:    0.00 Million
+class-0 mean overall: 7.42e+04, population: 5067; class-1 mean overall: 7.37e+04, population: 4933
+class-0 mean of max_t: 6.69e+04, population: 1991; class-1 mean of max_t: 6.57e+04, population: 2265
+overall t-value:    0.93, max tau: 9.26e-03, (5/tau)^2: 2.92e+05
+max t-value:   43.36, max tau: 6.65e-01, (5/tau)^2: 5.66e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824636825600, e = 824636825608
+ key2: N = 824636825696, e = 824636825704
+Sample under percentile 99.89% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.49e+04, population: 5043; class-1 mean overall: 7.41e+04, population: 4957
+class-0 mean of max_t: 7.42e+04, population: 5039; class-1 mean of max_t: 7.27e+04, population: 4949
+overall t-value:    1.16, max tau: 1.16e-02, (5/tau)^2: 1.85e+05
+max t-value:    3.51, max tau: 3.51e-02, (5/tau)^2: 2.03e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824776015968, e = 824776015976
+ key2: N = 824776016064, e = 824776016072
+Sample under percentile 99.32% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 8.00e+04, population: 5015; class-1 mean overall: 7.94e+04, population: 4985
+class-0 mean of max_t: 7.91e+04, population: 4980; class-1 mean of max_t: 7.84e+04, population: 4951
+overall t-value:    1.94, max tau: 1.94e-02, (5/tau)^2: 6.62e+04
+max t-value:    3.59, max tau: 3.60e-02, (5/tau)^2: 1.93e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824635310560, e = 824635310568
+ key2: N = 824635311040, e = 824635311048
+Sample under percentile 53.35% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 8.46e+04, population: 4988; class-1 mean overall: 8.25e+04, population: 5012
+class-0 mean of max_t: 7.46e+04, population: 2504; class-1 mean of max_t: 7.39e+04, population: 2830
+overall t-value:    5.48, max tau: 5.48e-02, (5/tau)^2: 8.32e+03
+max t-value:    3.55, max tau: 4.86e-02, (5/tau)^2: 1.06e+04
+For the moment, maybe constant time.
+Randomly chosen two key:
+ key1: N = 824635867520, e = 824635867528
+ key2: N = 824635867616, e = 824635867624
+Sample under percentile 67.01% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.28e+04, population: 5054; class-1 mean overall: 7.50e+04, population: 4946
+class-0 mean of max_t: 6.57e+04, population: 3552; class-1 mean of max_t: 6.85e+04, population: 3149
+overall t-value:    3.34, max tau: 3.34e-02, (5/tau)^2: 2.24e+04
+max t-value:   81.46, max tau: 9.95e-01, (5/tau)^2: 2.52e+01
+Probably not constant time.
+Randomly chosen two key:
+ key1: N = 824638554304, e = 824638554312
+ key2: N = 824638554592, e = 824638554600
+Sample under percentile 92.31% is computed to have the max-t
+total measurements:    0.01 Million
+class-0 mean overall: 7.52e+04, population: 5096; class-1 mean overall: 7.30e+04, population: 4904
+class-0 mean of max_t: 7.15e+04, population: 4525; class-1 mean of max_t: 7.11e+04, population: 4705
+overall t-value:    7.18, max tau: 7.18e-02, (5/tau)^2: 4.84e+03
+max t-value:    2.71, max tau: 2.82e-02, (5/tau)^2: 3.13e+04
+For the moment, maybe constant time.
+

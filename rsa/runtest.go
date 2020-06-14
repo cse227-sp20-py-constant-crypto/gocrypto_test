@@ -14,7 +14,7 @@ const (
 	smallerMeasurements = 10000                     // total measurements for test 2/4
 	numberKeys          = numberMeasurements / 1000 // number of various keys used for test 1
 	trialNum            = 3                         // total trail number for this group of test
-	keyCompareTrail     = 10                        // total number of different msgs used to for test 2/6, can set to 1 for debugging
+	keyCompareTrail     = 100                       // total number of different msgs used to for test 2/6, can set to 1 for debugging
 )
 
 func DoTest() {
@@ -55,8 +55,8 @@ func test() {
 		fmt.Printf("<%s Test-2.%d>\n", "RSA OAEP", j)
 		specialMsg, f := spawnInit2(j, key, label)
 		dudect.Dudect(f, prepareInputs2(msg, specialMsg), false)
+		fmt.Println()
 	}
-	fmt.Println()
 
 	// test3
 	fmt.Println("|------------------Start Test-3------------------|")
@@ -79,6 +79,6 @@ func test() {
 		}
 		fmt.Printf("Randomly chosen two key:\n key1: N = %d, e = %d\n key2: N = %d, e = %d\n", &key1.N, &key1.E, &key2.N, &key2.E)
 		dudect.Dudect(spawnInit4(key1, key2, label), prepareInputs4(msg), true)
+		fmt.Println()
 	}
-	fmt.Println()
 }

@@ -36,8 +36,8 @@ func spawnInit4(baseKey, anotherKey *rsa.PrivateKey, baseLabel []byte) func(uint
 
 func prepareInputs4(baseMsg []byte) func() []dudect.Input {
 	return func() []dudect.Input {
-		var inputs = make([]dudect.Input, numberMeasurements)
-		for i := 0; i < numberMeasurements; i++ {
+		var inputs = make([]dudect.Input, smallerMeasurements)
+		for i := 0; i < smallerMeasurements; i++ {
 			var randByte = make([]byte, 1)
 			if n, err := io.ReadFull(rand.Reader, randByte); err != nil || n != 1 {
 				panic(fmt.Sprintf("Randbit failed with Err: %v, n: %v", err, n))
@@ -46,6 +46,7 @@ func prepareInputs4(baseMsg []byte) func() []dudect.Input {
 			// class-0 and class-1 use constant randomly picked data
 			data := make([]byte, msgSize)
 			copy(data, baseMsg)
+
 			if class == 0 {
 				inputs[i] = dudect.Input{Data: data, Class: 0}
 				continue

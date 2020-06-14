@@ -26,7 +26,7 @@ func DoTest() {
 }
 
 func test() {
-	for curveMode := 0; curveMode < 1; curveMode++ {
+	for curveMode := 0; curveMode < 2; curveMode++ {
 		var cur elliptic.Curve
 		switch curveMode {
 		case 0:
